@@ -1,3 +1,34 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['usr'])) {
+  if($_SESSION['privilegio']==1){
+
+  }
+  else{
+    header('Location: prcd/sort.php');
+    die();
+  }
+  
+} else {
+  // En caso contrario redirigimos el visitante a otra página
+
+  header('Location: prcd/sort.php');
+  die();
+}
+
+include('prcd/conn.php');
+
+// variables de sesión
+
+    $usuario = $_SESSION['usr'];
+    $id = $_SESSION['id'];
+    $perfil = $_SESSION['privilegio'];
+    // $nombre = $_SESSION['nombre'];
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -93,7 +124,7 @@
 
         <div class="text-end">
           <!-- <button type="button" class="btn btn-outline-light me-2">Login</button> -->
-          <button type="button" class="btn btn-warning"><i class="bi bi-door-open-fill"></i> Salir</button>
+          <a href="prcd/sort.php" type="button" class="btn btn-warning"><i class="bi bi-door-open-fill"></i> Salir</a>
         </div>
       </div>
     </div>
@@ -106,7 +137,7 @@
 <body>
     <div class="container">
     <p class="h4 mt-5">
-  <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> Usuario.
+  <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
 </p>
 <hr>
     </div>
@@ -238,8 +269,9 @@
 
       <div class="modal-body">
 
-      <div class="alert alert-dark" role="alert">
-        <i class="bi bi-exclamation-circle-fill"></i> Datos del paciente
+      <div class="alert" style="background-color:#A7B6DB; color:#183FDB;" role="alert">
+      <span class="h4"><i class="bi bi-exclamation-circle-fill"></i> Datos del paciente</span>
+        <hr>
 <!-- </div> -->
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>

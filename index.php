@@ -40,16 +40,16 @@
   <body class="text-center">
     
 <main class="form-signin">
-  <form action="prcd/acceso.php" method="POST">
+  <form action="prcd/prcd_validacion.php" method="POST">
     <img class="mb-4" src="css/assets/brand/dental.png" alt="" width="81" height="81">
     <h1 class="h3 mb-3 fw-normal">DENTAL | Acceso</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="usr">
       <label for="floatingInput">Usuario</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pwd">
       <label for="floatingPassword">Contraseña</label>
     </div>
 

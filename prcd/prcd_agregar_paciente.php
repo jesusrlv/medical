@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 
 <html>
 <header>
-        <link rel="shortcut icon" href="../../../img/mini_logo_cigo.ico" />  
+        
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <script src="sweetalert2.all.min.js"></script>
