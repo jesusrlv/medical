@@ -80,8 +80,8 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Inicio</a></li>
-          <li><a href="citas.php" class="nav-link px-2 text-white"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
+          <li><a href="dashboard.php" class="nav-link px-2 text-white">Inicio</a></li>
+          <li><a href="citas.php" class="nav-link px-2 text-secondary"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
           <!-- <li><a href="#" class="nav-link px-2 text-white"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
           <li><a href="pacientes.php" class="nav-link px-2 text-white"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
           <li><a href="catalogo.php" class="nav-link px-2 text-white"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
@@ -105,39 +105,62 @@
 
 <body>
     <div class="container">
+
     <p class="h4 mt-5">
-  <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> Usuario.
-</p>
-<hr>
+        <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> Usuario.
+      </p>
+
+    <hr>
+
+      <p class="h4 mt-5">
+        <strong><i class="bi bi-list-columns-reverse"></i> Agenda</strong> 
+      </p>
+
+      <p>
+        <div class="input-group mb-3 w-25">
+          <input type="date" class="form-control" placeholder="Recipient's username" aria-label="dd/mm/aaaa" aria-describedby="button-addon2">
+          <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i> Buscar</button>
+        </div>
+      </p>
+
     </div>
 <main>
 <div class="container py-4">
-<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold"><i class="bi bi-list-columns-reverse"></i> Agendar citas médicas</h1>
-        <p class="col-md-8 fs-4">Agregar citas para los pacientes registrados en el sistema.</p>
-        <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar cita</button>
-        <a href="citas.php" class="btn btn-primary btn-lg" type="button" ><i class="bi bi-calendar-week-fill"></i> Ver citas</a>
-      </div>
-    </div>
 
-    <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-dark rounded-3">
-          <h2><i class="bi bi-person-bounding-box"></i> Pacientes registrados</h2>
-          <p>Examinar los pacientes registrados y dar de alta.</p>
-          <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPaciente"><i class="bi bi-plus-circle"></i> Alta de pacientes</button>
-          <a href="pacientes.php" class="btn btn-outline-light" type="button"><i class="bi bi-search"></i> Ver pacientes</a>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2><i class="bi bi-person-lines-fill"></i>  Catálogo de diagnóstico</h2>
-          <p>Visualizar el catálogo de diagnñotico con costos.</p>
-          <a href="catalogo.php" class="btn btn-outline-secondary" type="button">Ver catálogo</a>
-        </div>
-      </div>
-    </div>
+<table class="table">
+  <thead class="table-dark">
+  <tr class="text-center">
+      <th scope="col">Día</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Sexo</th>
+      <th scope="col">Diagnóstico</th>
+  </thead>
+  <tbody>
+  <tr class="text-center">
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td><i class="bi bi-pencil-square"></i></td>
+    </tr>
+    <tr class="text-center">
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td><i class="bi bi-pencil-square"></i></td>
+    </tr>
+    <tr class="text-center">
+    <th scope="row">2</th>
+      <td>Ana</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td><i class="bi bi-pencil-square"></i></td>
+    </tr>
+  </tbody>
+</table>
+
     </div>
     </main>
 </body>
@@ -147,11 +170,11 @@
 <div class="container">
   <footer class="py-3 my-4">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li><a href="#" class="nav-link px-2 text-secondary">Inicio</a></li>
-        <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
+        <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Inicio</a></li>
+        <li><a href="citas.php" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
         <!-- <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
-        <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
-        <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
+        <li><a href="pacientes.php" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
+        <li><a href="catalogo.php" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
     </ul>
     <p class="text-center text-muted">REDDeploy &copy; 2021</p>
   </footer>
@@ -166,101 +189,3 @@
 </html>
 
 
-<!-- Modal agendar cita -->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agendar cita</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <form action="prcd/agendar_cita.php" method="POST">
-
-      <div class="modal-body">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-calendar-week-fill"></i> Fecha</label>
-            <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/aaaa">
-        </div>
-      
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Paciente</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar paciente</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Diagnóstico</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar paciente</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label"><i class="bi bi-card-list"></i> Observaciones</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar cita</button>
-    
-    </form>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal agregar paciente -->
-
-<div class="modal fade" id="exampleModalPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar paciente</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <form action="prcd/agendar_cita.php" method="POST">
-
-      <div class="modal-body">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre">
-        </div>
-
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Edad</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Edad del paciente">
-        </div>
-      
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Sexo</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar sexo del paciente</option>
-                    <option value="1">Masculino</option>
-                    <option value="2">Femenino</option>
-                </select>
-        </div>
-
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar paciente</button>
-    
-    </form>
-
-      </div>
-    </div>
-  </div>
-</div>
