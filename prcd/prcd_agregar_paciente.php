@@ -22,24 +22,31 @@ error_reporting(E_ALL);
 
 include('conn.php');
 
-$nombre = $_POST['nombre'];
-$usuario = $_POST['username'];
-$pwd = $_POST['password'];
-// $hash_pwd = md5($pwd);
-$correo = $_POST['correo'];
-$perfil = 1;
+$nombre = $_POST['nombre_paciente'];
+$direccion = $_POST['direccion_paciente'];
+$telefono = $_POST['telefono_paciente'];
+$edad = $_POST['edad_paciente'];
+$peso = $_POST['peso_paciente'];
+$sexo = $_POST['sexo_paciente'];
+$alergias = $_POST['alergias_paciente'];
+$estatura = $_POST['estatura_paciente'];
+$tipo_sangre = $_POST['tiposangre_paciente'];
+$email = $_POST['email_paciente'];
+$nombre_emergencia = $_POST['nombre_emergencia'];
+$telefono_emergencia = $_POST['telefono_emergencia'];
 
-$sql="INSERT INTO usr(nombre,usuario,pwd,perfil,correo) 
-VALUES('$nombre','$usuario','$pwd','$perfil','$correo')";
+
+$sql="INSERT INTO paciente(nombre,direccion,telefono,edad,peso,sexo,alergias,estatura,tipo_sangre,email,nombre_emergencia,telefono_emergencia) 
+VALUES('$nombre','$direccion','$telefono','$edad','$peso','$sexo','$alergias','$estatura','$tipo_sangre','$email','$nombre_emergencia','$telefono_emergencia')";
 $resultado= $conn->query($sql);
-echo $resultado;
+// echo $resultado;
 if($resultado){
 
     echo "<script type=\"text/javascript\">Swal.fire(
         'Proceso exitoso',
-        'Usuario agregado',
+        'Paciente agregado',
         'success'
-      ).then(function(){location.href='../../index.php';}
+      ).then(function(){location.href='../dashboard.php';}
     
       
     
@@ -49,7 +56,7 @@ if($resultado){
 else{
     echo "<script type=\"text/javascript\">Swal.fire(
         'Advertencia',
-        'Usuario no agregado',
+        'Paciente no agregado',
         'warning'
       ).then(function(){window.location=history.go(-1);}
     

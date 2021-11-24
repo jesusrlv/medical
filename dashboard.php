@@ -265,7 +265,7 @@ include('prcd/conn.php');
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="prcd/agendar_cita.php" method="POST">
+      <form action="prcd/prcd_agregar_paciente.php" method="POST">
 
       <div class="modal-body">
 
