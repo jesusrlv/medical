@@ -176,17 +176,21 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="prcd/agendar_cita.php" method="POST">
+      <form action="prcd/prcd_agregar_cita.php" method="POST">
 
       <div class="modal-body">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-calendar-week-fill"></i> Fecha</label>
-            <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/aaaa">
+            <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/aaaa" name="fecha_cita" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-stopwatch-fill"></i> Hora</label>
+            <input type="time" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/aaaa" name="hora_cita" required>
         </div>
       
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Paciente</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="paciente_cita">
                     <option selected>Seleccionar paciente</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -196,7 +200,7 @@
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Diagnóstico</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="diagnostico_cita">
                     <option selected>Seleccionar paciente</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -206,12 +210,12 @@
 
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label"><i class="bi bi-card-list"></i> Observaciones</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observaciones_cita"></textarea>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar cita</button>
+        <button type="button" class="btn btn-primary"><i class="bi bi-hdd"></i> Guardar cita</button>
     
     </form>
 
@@ -223,7 +227,7 @@
 <!-- Modal agregar paciente -->
 
 <div class="modal fade" id="exampleModalPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar paciente</h5>
@@ -235,28 +239,111 @@
       <div class="modal-body">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre" name="nombre_paciente" required>
         </div>
 
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-house-door-fill"></i> Dirección</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar dirección" name="direccion_paciente" required>
+            </div>
+          </div>
+            <div class="col">
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-telephone-plus-fill"></i> Teléfono</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar teléfono" name="telefono_paciente" required>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-chat-square-quote"></i> Edad</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Edad del paciente" name="edad_paciente" required>
+            </div>
+          </div>
+
+          <div class="col">  
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Peso</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Agregar peso" name="peso_paciente" required>
+            </div>
+          </div>
+
+          <div class="col"> 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-gender-ambiguous"></i> Sexo</label>
+                    <select class="form-select" aria-label="Default select example" name="sexo_paciente">
+                        <option selected>Seleccionar ...</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                    </select>
+            </div>
+          </div>
+        </div>
+
+
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Edad</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Edad del paciente">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-journal-medical"></i> Alergias</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar alergias" name="alergias_paciente" required>
+        </div>
+
+        <div class="row">
+          <div class="col"> 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-123"></i> Estatura</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar estatura" name="estatura_paciente" required>
+            </div>
+          </div>
+          <div class="col"> 
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-droplet-fill"></i> Tipo de sangre</label>
+                    <select class="form-select" aria-label="Default select example" name="tiposangre_paciente">
+                        <option selected>Seleccionar sexo del paciente</option>
+                        <option value="1">O +</option>
+                        <option value="2">O -</option>
+                        <option value="3">A +</option>
+                        <option value="4">A -</option>
+                        <option value="5">AB +</option>
+                        <option value="6">AB -</option>
+                    </select>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-envelope-check-fill"></i> Correo electrónico</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Agregar email" name="email_paciente" required>
         </div>
       
+        
+
+        <div class="alert alert-danger" role="alert">
+        <i class="bi bi-exclamation-circle-fill"></i> Contacto de emergencia
+
+        <hr>
+
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Sexo</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar sexo del paciente</option>
-                    <option value="1">Masculino</option>
-                    <option value="2">Femenino</option>
-                </select>
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre" name="nombre_emergencia" required>
         </div>
 
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-telephone-plus-fill"></i> Teléfono</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar teléfono" name="telefono_emergencia" required>
+        </div>
+        </div>
+        
+        
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar paciente</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-hdd"></i> Guardar paciente</button>
     
     </form>
 

@@ -131,6 +131,7 @@
   <thead class="table-dark">
   <tr class="text-center">
       <th scope="col">Día</th>
+      <th scope="col">Hora</th>
       <th scope="col">Nombre</th>
       <th scope="col">Edad</th>
       <th scope="col">Sexo</th>
@@ -139,6 +140,7 @@
   <tbody>
   <tr class="text-center">
       <th scope="row">1</th>
+      <th scope="row">10:30</th>
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
@@ -146,6 +148,8 @@
     </tr>
     <tr class="text-center">
       <th scope="row">2</th>
+      <th scope="row">10:30</th>
+
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
@@ -153,6 +157,8 @@
     </tr>
     <tr class="text-center">
     <th scope="row">2</th>
+    <th scope="row">11:00</th>
+
       <td>Ana</td>
       <td>Thornton</td>
       <td>@fat</td>
