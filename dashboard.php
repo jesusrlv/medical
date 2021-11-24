@@ -116,7 +116,7 @@
       <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold"><i class="bi bi-list-columns-reverse"></i> Agendar citas médicas</h1>
         <p class="col-md-8 fs-4">Agregar citas para los pacientes registrados en el sistema.</p>
-        <button class="btn btn-primary btn-lg" type="button"><i class="bi bi-plus-circle"></i> Agregar cita</button>
+        <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar cita</button>
       </div>
     </div>
 
@@ -125,7 +125,7 @@
         <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2><i class="bi bi-person-bounding-box"></i> Pacientes registrados</h2>
           <p>Examinar los pacientes registrados y dar de alta.</p>
-          <button class="btn btn-outline-light" type="button"><i class="bi bi-plus-circle"></i> Alta de pacientes</button>
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPaciente"><i class="bi bi-plus-circle"></i> Alta de pacientes</button>
           <button class="btn btn-outline-light" type="button"><i class="bi bi-search"></i> Ver pacientes</button>
         </div>
       </div>
@@ -163,3 +163,103 @@
       
   </body>
 </html>
+
+
+<!-- Modal agendar cita -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agendar cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="prcd/agendar_cita.php" method="POST">
+
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-calendar-week-fill"></i> Fecha</label>
+            <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="dd/mm/aaaa">
+        </div>
+      
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Paciente</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleccionar paciente</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Diagnóstico</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleccionar paciente</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label"><i class="bi bi-card-list"></i> Observaciones</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar cita</button>
+    
+    </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal agregar paciente -->
+
+<div class="modal fade" id="exampleModalPaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-plus-circle"></i> Agregar paciente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form action="prcd/agendar_cita.php" method="POST">
+
+      <div class="modal-body">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Edad</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Edad del paciente">
+        </div>
+      
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Sexo</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Seleccionar sexo del paciente</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Femenino</option>
+                </select>
+        </div>
+
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-success"><i class="bi bi-hdd"></i> Guardar paciente</button>
+    
+    </form>
+
+      </div>
+    </div>
+  </div>
+</div>
