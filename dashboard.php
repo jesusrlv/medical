@@ -237,6 +237,10 @@
       <form action="prcd/agendar_cita.php" method="POST">
 
       <div class="modal-body">
+
+      <div class="alert alert-dark" role="alert">
+        <i class="bi bi-exclamation-circle-fill"></i> Datos del paciente
+<!-- </div> -->
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre" name="nombre_paciente" required>
@@ -320,7 +324,8 @@
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Agregar email" name="email_paciente" required>
         </div>
       
-        
+        </div>
+        <!-- fin alert -->
 
         <div class="alert alert-danger" role="alert">
         <i class="bi bi-exclamation-circle-fill"></i> Contacto de emergencia
