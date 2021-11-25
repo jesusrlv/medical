@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 24-11-2021 a las 22:09:20
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 25-11-2021 a las 01:59:15
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -37,6 +36,33 @@ CREATE TABLE `citas` (
   `observaciones` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Volcado de datos para la tabla `citas`
+--
+
+INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `observaciones`) VALUES
+(1, '2021-11-24', '12:30:00', 1, 1, 'NA'),
+(2, '2021-11-25', '10:15:00', 2, 1, '2');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `diagnostico`
+--
+
+CREATE TABLE `diagnostico` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `diagnostico`
+--
+
+INSERT INTO `diagnostico` (`id`, `nombre`, `categoria`) VALUES
+(1, 'Caries', 'Bucal');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +84,15 @@ CREATE TABLE `paciente` (
   `nombre_emergencia` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `telefono_emergencia` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `paciente`
+--
+
+INSERT INTO `paciente` (`id`, `nombre`, `direccion`, `telefono`, `edad`, `peso`, `sexo`, `alergias`, `estatura`, `tipo_sangre`, `email`, `nombre_emergencia`, `telefono_emergencia`) VALUES
+(1, 'Rodolfo', 'El salero', '9999999', 40, 100, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
+(2, 'Jesus', 'El salero', '9999999', 40, 102, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
+(3, 'Jesus', 'El salero', '9999999', 9, 9, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '999999997');
 
 -- --------------------------------------------------------
 
@@ -90,6 +125,12 @@ ALTER TABLE `citas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `diagnostico`
+--
+ALTER TABLE `diagnostico`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `paciente`
 --
 ALTER TABLE `paciente`
@@ -109,13 +150,19 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `diagnostico`
+--
+ALTER TABLE `diagnostico`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usr`

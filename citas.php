@@ -1,3 +1,32 @@
+<?php
+
+session_start();
+
+// if (isset($_SESSION['usr'])) {
+//   if($_SESSION['privilegio']==1){
+
+//   }
+//   else{
+//     header('Location: prcd/sort.php');
+//     die();
+//   }
+  
+// } else {
+
+//   header('Location: prcd/sort.php');
+//   die();
+// }
+
+include('prcd/conn.php');
+
+// variables de sesión
+
+    $usuario = $_SESSION['usr'];
+    $id = $_SESSION['id'];
+    $perfil = $_SESSION['privilegio'];
+    // $nombre = $_SESSION['nombre'];
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -117,9 +146,9 @@
       </p>
 
       <p>
-        <div class="input-group mb-3 w-25">
+        <!-- <div class="input-group mb-3 w-25">
           <input type="date" class="form-control" placeholder="Recipient's username" aria-label="dd/mm/aaaa" aria-describedby="button-addon2">
-          <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i> Buscar</button>
+          <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i> Buscar</button> -->
         </div>
       </p>
 
@@ -130,40 +159,47 @@
 <table class="table">
   <thead class="table-dark">
   <tr class="text-center">
-      <th scope="col">Día</th>
+      <th scope="col">Fecha</th>
       <th scope="col">Hora</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Edad</th>
-      <th scope="col">Sexo</th>
       <th scope="col">Diagnóstico</th>
+      <th scope="col">Observaciones</th>
   </thead>
   <tbody>
-  <tr class="text-center">
-      <th scope="row">1</th>
-      <th scope="row">10:30</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-    </tr>
-    <tr class="text-center">
-      <th scope="row">2</th>
-      <th scope="row">10:30</th>
+  <?php
 
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-    </tr>
-    <tr class="text-center">
-    <th scope="row">2</th>
-    <th scope="row">11:00</th>
+    // date_default_timezone_set('America/Mexico_City');
+    // setlocale(LC_TIME, 'es_MX.UTF-8');
+    // $fecha_actual=strftime("%Y-%m-%d");
+    // $hora_actual=strftime("%H:%M:%S");
 
-      <td>Ana</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><i class="bi bi-pencil-square"></i></td>
+    $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC";
+    $resultado_consulta2 = $conn->query($consulta2);
+    while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){
+      echo ' <tr class="text-center">';
+      echo '<th scope="row">'.$row_consulta2['fecha'].'</th>';
+      echo '<th scope="row">'.$row_consulta2['hora'].'</th>';
+      // echo '<th scope="row">'.$row_consulta2['id_paciente'].'</th>';
+        $id_paciente=$row_consulta2['id_paciente'];
+        $paciente = "SELECT * FROM paciente WHERE id ='$id_paciente'";
+        $resultado_paciente= $conn->query($paciente);
+        $row_paciente=$resultado_paciente->fetch_assoc();
+        echo '<th scope="row">'.utf8_encode($row_paciente['nombre']).'</th>';
+
+      // echo '<th scope="row">'.$row_consulta2['diagnostico'].'</th>';
+      $id_diagnostico=$row_consulta2['diagnostico'];
+      $diagnostico = "SELECT * FROM diagnostico WHERE id ='$id_diagnostico'";
+      $resultado_diagnostico= $conn->query($diagnostico);
+      $row_diagnostico=$resultado_diagnostico->fetch_assoc();
+      echo '<th scope="row">'.utf8_encode($row_diagnostico['nombre']).'</th>';
+
+      echo '<th scope="row">'.$row_consulta2['observaciones'].'</th>';
+      echo '</tr>';
+    }
+
+  ?>
     </tr>
+    
   </tbody>
 </table>
 
