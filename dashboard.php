@@ -223,19 +223,33 @@ include('prcd/conn.php');
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Paciente</label>
                 <select class="form-select" aria-label="Default select example" name="paciente_cita">
                     <option selected>Seleccionar paciente</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+    
+                    <?php
+
+                      $consulta ="SELECT * FROM paciente ORDER BY id ASC";
+                      $resultado_consulta = $conn->query($consulta);
+                      while ($row_consulta = $resultado_consulta->fetch_assoc()){
+                        echo '<option value="'.$row_consulta['id'].'">'.$row_consulta['nombre'].'</option>';
+                      }
+                      
+                    ?>
+
                 </select>
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Diagnóstico</label>
                 <select class="form-select" aria-label="Default select example" name="diagnostico_cita">
-                    <option selected>Seleccionar paciente</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Seleccionar diagóstico</option>
+                    <?php
+
+                      $consulta2 ="SELECT * FROM diagnostico ORDER BY id ASC";
+                      $resultado_consulta2 = $conn->query($consulta2);
+                      while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){
+                        echo '<option value="'.$row_consulta2['id'].'">'.$row_consulta2['nombre'].'</option>';
+                      }
+                      
+                    ?>
                 </select>
         </div>
 
@@ -246,7 +260,7 @@ include('prcd/conn.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <button type="button" class="btn btn-primary"><i class="bi bi-hdd"></i> Guardar cita</button>
+        <button type="submit" class="btn btn-primary"><i class="bi bi-hdd"></i> Guardar cita</button>
     
     </form>
 
