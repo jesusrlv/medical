@@ -156,71 +156,48 @@ include('prcd/conn.php');
 <main>
 <div class="container py-4">
 
-<table class="table table-bordered table-sm table-hover table-responsive">
-        <thead class="table-dark">
-        <tr class="text-center fw-lighter">
-            <th scope="col">#</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Diagnóstico</th>
-            <th scope="col">Observaciones</th>
-            <th scope="col">Estatus</th>
-        </thead>
-        <tbody>
-        <?php
+<!-- inicia calendar -->
 
-          // date_default_timezone_set('America/Mexico_City');
-          // setlocale(LC_TIME, 'es_MX.UTF-8');
-          // $fecha_actual=strftime("%Y-%m-%d");
-          // $hora_actual=strftime("%H:%M:%S");
+<?php
 
-          date_default_timezone_set('America/Mexico_City');
+date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
                   $fecha_sistema = strftime("%Y-%m-%d");
 
+// $fecha = '2017-04-26'; //Fecha de la que queramos saber el número de días que tiene el mes.
+
+                echo date( 't', strtotime( $fecha_sistema ) );
+                $dia=date( 't', strtotime( $fecha_sistema ) );
+
+        
           // $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
           $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
           $resultado_consulta2 = $conn->query($consulta2);
           $n=0;
           while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){
-            echo ' <tr class="text-center text-white" style="background-color:#61A0DF;">';
-            $n++;
-            echo '<th scope="row">'.$n.'</th>';
-            echo '<th scope="row" class="fw-light">'.date('d/m/Y',strtotime($row_consulta2['fecha'])).'</th>';
-            // echo '<th scope="row" class="fw-light">'.date("H:i",time($row_consulta2['hora'])).'</th>';
-            echo '<th scope="row" class="fw-light">'.date("g:i A",strtotime($row_consulta2['hora'])).'</th>';
-            // echo '<th scope="row">'.$row_consulta2['id_paciente'].'</th>';
-              $id_paciente=$row_consulta2['id_paciente'];
-              $paciente = "SELECT * FROM paciente WHERE id ='$id_paciente'";
-              $resultado_paciente= $conn->query($paciente);
-              $row_paciente=$resultado_paciente->fetch_assoc();
-              echo '<th scope="row" class="fw-light">'.utf8_encode($row_paciente['nombre']).'</th>';
-
-            // echo '<th scope="row">'.$row_consulta2['diagnostico'].'</th>';
-            $id_diagnostico=$row_consulta2['diagnostico'];
-            $diagnostico = "SELECT * FROM diagnostico WHERE id ='$id_diagnostico'";
-            $resultado_diagnostico= $conn->query($diagnostico);
-            $row_diagnostico=$resultado_diagnostico->fetch_assoc();
-            echo '<th scope="row" class="fw-light">'.utf8_encode($row_diagnostico['nombre']).'</th>';
-
-            echo '<th scope="row" class="fw-light">'.$row_consulta2['observaciones'].'</th>';
-            // echo '<th scope="row">'.$row_consulta2['status'].'</th>';
-            if ($row_consulta2['status']==1){
-              
-              echo '<th scope="row" class="bg-primary text-light fw-light"><i class="bi bi-check-circle-fill"></i> Acudió</th>';
-            }
-            else{
-              echo '<th scope="row" class="bg-danger text-light fw-light"><i class="bi bi-x-circle-fill"></i> No acudió</th>';
-            }
-            echo '</tr>';
+                echo ' 
+            <div class="card mb-3" style="max-width: 360px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+                
+              ';
           }
 
-        ?>
-          </tr>
-          
-        </tbody>
-      </table>
+?>
+
+
+<!-- termina calendar -->
 
     </div>
     </main>

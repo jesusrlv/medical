@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-11-2021 a las 01:59:15
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.10
+-- Tiempo de generación: 29-11-2021 a las 22:21:15
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,16 +34,26 @@ CREATE TABLE `citas` (
   `hora` time NOT NULL,
   `id_paciente` int(11) NOT NULL,
   `diagnostico` int(11) NOT NULL,
-  `observaciones` text COLLATE utf8_unicode_ci NOT NULL
+  `observaciones` text COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `observaciones`) VALUES
-(1, '2021-11-24', '12:30:00', 1, 1, 'NA'),
-(2, '2021-11-25', '10:15:00', 2, 1, '2');
+INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `observaciones`, `status`) VALUES
+(1, '2021-11-24', '12:30:00', 1, 1, 'NA', 1),
+(2, '2021-11-25', '10:15:00', 2, 1, '2', 0),
+(3, '2021-11-29', '12:00:00', 2, 1, 'na', 0),
+(4, '2021-11-30', '12:33:00', 1, 1, 'SDSD', 1),
+(5, '2021-12-01', '02:02:00', 2, 1, 'SS', 0),
+(6, '2021-12-03', '04:30:00', 1, 1, 'FGD', 1),
+(7, '2021-11-30', '01:02:00', 1, 1, '33', 1),
+(8, '2021-11-30', '03:03:00', 2, 1, 'JJ', 1),
+(9, '2022-01-01', '03:03:00', 1, 1, 'JJ', 1),
+(10, '2021-12-06', '05:05:00', 1, 1, 'NA', 0),
+(11, '2021-11-29', '23:02:00', 2, 1, 'na 11', 0);
 
 -- --------------------------------------------------------
 
@@ -150,7 +161,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `diagnostico`
