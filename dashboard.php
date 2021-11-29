@@ -1,21 +1,20 @@
 <?php
-
 session_start();
 
-// if (isset($_SESSION['usr'])) {
-//   if($_SESSION['privilegio']==1){
+if (isset($_SESSION['usr'])) {
+  if($_SESSION['privilegio']==1){
 
-//   }
-//   else{
-//     header('Location: prcd/sort.php');
-//     die();
-//   }
+  }
+  else{
+    header('Location: prcd/sort.php');
+    die();
+  }
   
-// } else {
+} else {
 
-//   header('Location: prcd/sort.php');
-//   die();
-// }
+  header('Location: prcd/sort.php');
+  die();
+}
 
 include('prcd/conn.php');
 
@@ -24,7 +23,6 @@ include('prcd/conn.php');
     $usuario = $_SESSION['usr'];
     $id = $_SESSION['id'];
     $perfil = $_SESSION['privilegio'];
-    // $nombre = $_SESSION['nombre'];
 
 ?>
 
