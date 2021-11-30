@@ -145,6 +145,8 @@ include('prcd/conn.php');
         <strong><i class="bi bi-list-columns-reverse"></i> Agenda</strong> 
       </p>
 
+      
+
       <p>
         <!-- <div class="input-group mb-3 w-25">
           <input type="date" class="form-control" placeholder="Recipient's username" aria-label="dd/mm/aaaa" aria-describedby="button-addon2">
@@ -157,9 +159,9 @@ include('prcd/conn.php');
 <div class="container py-4">
 
 <div class="row">
-  <div class="col-6">
+  <div class="col-4">
     <form action="calendar.php" method="POST">
-    <select class="form-select" aria-label="Default select example" name="mes">
+    <select class="form-select" aria-label="Default select example" name="mes" required>
       <option selected>Mes</option>
       <option value="1">Enero</option>
       <option value="2">Febrero</option>
@@ -177,8 +179,8 @@ include('prcd/conn.php');
    
   </div>
   <div class="col-4">
-    <select class="form-select" aria-label="Default select example" name="annio">
-      <option selected>Año</option>
+    <select class="form-select" aria-label="Default select example" name="annio" required>
+      <option selected required>Año</option>
       <option value="2021">2021</option>
       <option value="2022">2022</option>
       <option value="2023">2023</option>
@@ -190,7 +192,7 @@ include('prcd/conn.php');
       <option value="2029">2029</option>
     </select>
   </div>
-  <div class="col-2">
+  <div class="col-4">
     <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
     </form>
   </div>
@@ -283,9 +285,14 @@ date_default_timezone_set('America/Mexico_City');
             <div class="card-group">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">1</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill"></i> 1</h5>
                   <hr>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
+                  <hr>
+                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
+                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
                 </div>
               </div>
               <div class="card">
