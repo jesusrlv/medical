@@ -156,6 +156,47 @@ include('prcd/conn.php');
 <main>
 <div class="container py-4">
 
+<div class="row">
+  <div class="col-6">
+    <form action="calendar.php" method="POST">
+    <select class="form-select" aria-label="Default select example" name="mes">
+      <option selected>Mes</option>
+      <option value="1">Enero</option>
+      <option value="2">Febrero</option>
+      <option value="3">Marzo</option>
+      <option value="4">Abril</option>
+      <option value="5">Mayo</option>
+      <option value="6">Junio</option>
+      <option value="7">Julio</option>
+      <option value="8">Agosto</option>
+      <option value="9">Septiempre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviembre</option>
+      <option value="12">Diciembre</option>
+    </select>
+   
+  </div>
+  <div class="col-4">
+    <select class="form-select" aria-label="Default select example" name="annio">
+      <option selected>Año</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024">2024</option>
+      <option value="2025">2025</option>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+      <option value="2029">2029</option>
+    </select>
+  </div>
+  <div class="col-2">
+    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
+    </form>
+  </div>
+</div>
+<hr>
+
 <!-- inicia calendar -->
 
 <?php
@@ -169,14 +210,14 @@ date_default_timezone_set('America/Mexico_City');
                 // echo date( 't', strtotime( $fecha_sistema ) );
                 $dia=date( 't', strtotime( $fecha_sistema ) ); //número de días en el mes
                 
-                if(isset($_REQUEST['m'])){
-                  $m = $_REQUEST['m'];
-                  // $mes=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
-                  $mes= $_REQUEST['ma'];
-                  $mtotal = $mes + ($m);
+                if(isset($_REQUEST['mes'])&&isset($_REQUEST['annio'])){
+                  $mtotal = $_REQUEST['mes'];
+                  $annio = $_REQUEST['annio'];
+                  
                 }
                 else{
                   $mtotal=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
+                  $annio = date('Y', strtotime( $fecha_sistema ));
                 }
 
                 // $mes=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
@@ -184,7 +225,8 @@ date_default_timezone_set('America/Mexico_City');
                 // $mtotal = $mes + ($m);
                 // $mes=date('F', strftime($fecha_sistema)); //muestra el mes actual
                 // $fecha_actual=strftime("%B");
-                echo '<a href="calendar.php?m=-1&ma='.$mtotal.'"><span class="badge rounded-pill bg-secondary text-light"> << </span></a> <strong>MES</strong>: ';
+                // echo '<a href="calendar.php?m=-1&ma='.$mtotal.'"><span class="badge rounded-pill bg-secondary text-light"> << </span></a> <strong>MES</strong>: ';
+                echo '<strong>MES</strong>: ';
                 
                 if($mtotal==1){
                   echo '<p>Enero</p>';
@@ -222,8 +264,10 @@ date_default_timezone_set('America/Mexico_City');
                 elseif($mtotal==12){
                   echo 'Diciembre';
                 }
-                echo ' <a href="calendar.php?m=1"><span class="badge rounded-pill bg-secondary text-light"> >> </span></a>';
+                // echo ' <a href="calendar.php?m=1"><span class="badge rounded-pill bg-secondary text-light"> >> </span></a>';
+                echo ' | <strong>Año: </strong>'.$annio;
                 echo '<hr>';
+                
                 
                 
                 // .$fecha_actual.'<hr>'; 
@@ -469,7 +513,7 @@ date_default_timezone_set('America/Mexico_City');
                 <div class="card border-light">
                   <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <hr>
+                 
                     <p class="card-text"></p>
                   </div>
                 </div>

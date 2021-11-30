@@ -496,7 +496,7 @@ include('prcd/conn.php');
         
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-square-fill"></i> Cerrar</button>
-        <a href="citas.php" type="submit" class="btn btn-primary"><i class="bi bi-link"></i> Ver agenda completa</a>
+        <a href="calendar.php" type="submit" class="btn btn-primary"><i class="bi bi-link"></i> Ver agenda completa</a>
     
     </form>
 
