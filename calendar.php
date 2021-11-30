@@ -166,33 +166,336 @@ date_default_timezone_set('America/Mexico_City');
 
 // $fecha = '2017-04-26'; //Fecha de la que queramos saber el número de días que tiene el mes.
 
-                echo date( 't', strtotime( $fecha_sistema ) );
-                $dia=date( 't', strtotime( $fecha_sistema ) );
+                // echo date( 't', strtotime( $fecha_sistema ) );
+                $dia=date( 't', strtotime( $fecha_sistema ) ); //número de días en el mes
+                
+                if(isset($_REQUEST['m'])){
+                  $m = $_REQUEST['m'];
+                  // $mes=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
+                  $mes= $_REQUEST['ma'];
+                  $mtotal = $mes + ($m);
+                }
+                else{
+                  $mtotal=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
+                }
+
+                // $mes=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
+                // $mtotal=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
+                // $mtotal = $mes + ($m);
+                // $mes=date('F', strftime($fecha_sistema)); //muestra el mes actual
+                // $fecha_actual=strftime("%B");
+                echo '<a href="calendar.php?m=-1&ma='.$mtotal.'"><span class="badge rounded-pill bg-secondary text-light"> << </span></a> <strong>MES</strong>: ';
+                
+                if($mtotal==1){
+                  echo '<p>Enero</p>';
+                }
+                elseif($mtotal==2){
+                  echo 'Febrero';
+                }
+                elseif($mtotal==3){
+                  echo 'Marzo';
+                }
+                elseif($mtotal==4){
+                  echo 'Abril';
+                }
+                elseif($mtotal==5){
+                  echo 'Mayo';
+                }
+                elseif($mtotal==6){
+                  echo 'Junio';
+                }
+                elseif($mtotal==7){
+                  echo 'Julio';
+                }
+                elseif($mtotal==8){
+                  echo 'Agosto';
+                }
+                elseif($mtotal==9){
+                  echo 'Septiembre';
+                }
+                elseif($mtotal==10){
+                  echo 'Octubre';
+                }
+                elseif($mtotal==11){
+                  echo 'Noviembre';
+                }
+                elseif($mtotal==12){
+                  echo 'Diciembre';
+                }
+                echo ' <a href="calendar.php?m=1"><span class="badge rounded-pill bg-secondary text-light"> >> </span></a>';
+                echo '<hr>';
+                
+                
+                // .$fecha_actual.'<hr>'; 
 
         
           // $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
-          $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
-          $resultado_consulta2 = $conn->query($consulta2);
-          $n=0;
-          while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){
+          // $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
+          // $resultado_consulta2 = $conn->query($consulta2);
+          // $n=0;
+          // while ($dia = 30){
                 echo ' 
-            <div class="card mb-3" style="max-width: 360px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="...">
+            
+            <div class="card-group">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">1</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">2</h5>
+                  <hr>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">3</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">4</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">5</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">6</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">7</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-group">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">8</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">9</h5>
+                  <hr>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">10</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">11</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">12</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">13</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">14</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-group">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">15</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">16</h5>
+                  <hr>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">17</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">18</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">19</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">20</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">21</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="card-group">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">22</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">23</h5>
+                  <hr>
+                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">24</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">25</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">26</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">27</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">28</h5>
+                  <hr>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-group">
+              <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">29</h5>
+                    <hr>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
                   </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">30</h5>
+                    <hr>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">31</h5>
+                    <hr>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                  </div>
+                </div>
+                <div class="card border-light">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <hr>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+                <div class="card border-light">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+                <div class="card border-light">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+                <div class="card border-light">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
                   </div>
                 </div>
             </div>
-                
+
+
               ';
-          }
+          // }
 
 ?>
 
