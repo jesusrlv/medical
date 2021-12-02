@@ -274,12 +274,13 @@ date_default_timezone_set('America/Mexico_City');
                 
                 // .$fecha_actual.'<hr>'; 
 
-        
+        require('prcd/contar_calentario.php');
           // $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
           // $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
           // $resultado_consulta2 = $conn->query($consulta2);
           // $n=0;
           // while ($dia = 30){
+            echo $fecha_calcular1;
                 echo ' 
             
             <div class="card-group">
@@ -288,7 +289,7 @@ date_default_timezone_set('America/Mexico_City');
                   <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 1</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: '.$row_cnt1.'</p>
                   <hr>
                   <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
@@ -373,7 +374,7 @@ date_default_timezone_set('America/Mexico_City');
             <div class="card-group">
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 8</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -385,7 +386,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 9</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -397,7 +398,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 10</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -409,7 +410,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 11</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -421,7 +422,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 12</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -433,7 +434,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 13</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -445,7 +446,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 14</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -462,7 +463,7 @@ date_default_timezone_set('America/Mexico_City');
             <div class="card-group">
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 15</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -474,7 +475,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 16</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -486,7 +487,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 17</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -498,7 +499,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 18</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -510,7 +511,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 19</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -522,7 +523,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 20</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -534,7 +535,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 21</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -549,7 +550,7 @@ date_default_timezone_set('America/Mexico_City');
             <div class="card-group">
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 22</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -561,7 +562,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 23</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -573,7 +574,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 24</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -585,7 +586,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 25</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -597,7 +598,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 26</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -609,7 +610,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 27</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -621,7 +622,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 28</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -638,7 +639,7 @@ date_default_timezone_set('America/Mexico_City');
               
             <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 29</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -650,7 +651,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 30</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -662,7 +663,7 @@ date_default_timezone_set('America/Mexico_City');
               </div>
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
+                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 31</h5>
                   <hr>
                   <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
@@ -753,3 +754,11 @@ date_default_timezone_set('America/Mexico_City');
     </div>
   </div>
 </div>
+
+<?php
+
+            function fecha($mes,$annio){
+              $fecha_sql=(dia);
+            }
+
+?>
