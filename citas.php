@@ -180,7 +180,7 @@ include('prcd/conn.php');
                   $fecha_sistema = strftime("%Y-%m-%d");
 
           // $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
-          $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
+          $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora ASC LIMIT 10";
           $resultado_consulta2 = $conn->query($consulta2);
           $n=0;
           while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){

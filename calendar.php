@@ -205,6 +205,7 @@ include('prcd/conn.php');
 
 date_default_timezone_set('America/Mexico_City');
                   setlocale(LC_TIME, 'es_MX.UTF-8');
+                  // setlocale(LC_TIME, 'es_ES');
                   $fecha_sistema = strftime("%Y-%m-%d");
 
 // $fecha = '2017-04-26'; //Fecha de la que queramos saber el número de días que tiene el mes.
@@ -231,7 +232,7 @@ date_default_timezone_set('America/Mexico_City');
                 echo '<strong>MES</strong>: ';
                 
                 if($mtotal==1){
-                  echo '<p>Enero</p>';
+                  echo 'Enero';
                 }
                 elseif($mtotal==2){
                   echo 'Febrero';
@@ -280,19 +281,23 @@ date_default_timezone_set('America/Mexico_City');
           // $resultado_consulta2 = $conn->query($consulta2);
           // $n=0;
           // while ($dia = 30){
+
+            //echo para calcular la fecha correctamente    
             echo $fecha_calcular1;
-                echo ' 
+            echo $row_cnt1;
+            
+              echo ' 
             
             <div class="card-group">
               <div class="card border-info bg-dark text-light">
                 <div class="card-body">
                   <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 1</h5>
                   <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
+                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día: '.$dia1.'</p>
                   <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: '.$row_cnt1.'</p>
                   <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
+                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: '.$row_cnt1_si.'</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: '.$row_cnt1_no.'</p>
                   <p class="card-text small"><a href="" style="text-decoration: none" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar</a>
                 </div>
               </div>
@@ -300,11 +305,11 @@ date_default_timezone_set('America/Mexico_City');
                 <div class="card-body">
                   <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 2</h5>
                   <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
+                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día: '.$dia2.'</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: '.$row_cnt2.'</p>
                   <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
+                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: '.$row_cnt2_si.'</p>
+                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: '.$row_cnt2_no.'</p>
                   <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
                 </div>
               </div>
