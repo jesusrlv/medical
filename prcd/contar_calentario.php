@@ -38,12 +38,26 @@ $dos_no = "SELECT * FROM citas WHERE fecha = '$fecha_calcular2' AND status = 0";
 $resultado_dos_no = $conn->query($dos_no);
 $row_cnt2_no = $resultado_dos_no->num_rows;
 
-
-
-
-
-
-
-
-
 ?>
+
+<script>
+    const nombreDelDiaSegunFecha = fecha => [
+    'domingo',
+    'lunes',
+    'martes',
+    'miércoles',
+    'jueves',
+    'viernes',
+    'sábado',
+    'domingo',
+  ][new Date(fecha).getDay()];
+
+
+const fechasParaProbar = [
+  "<?php echo $fecha_calcular1;?>",
+];
+
+fechasParaProbar.forEach(fecha => {
+  console.log(`En ${fecha} fue ${nombreDelDiaSegunFecha(fecha)}`);
+});
+</script>

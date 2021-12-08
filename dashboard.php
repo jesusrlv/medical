@@ -140,12 +140,13 @@ include('prcd/conn.php');
     </div>
 <main>
 <div class="container py-4">
-<div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
+<!-- <div class="p-5 mb-4 bg-light rounded-3"> -->
+<div class="p-5 mb-4 bg-dark rounded-3">
+      <div class="container-fluid py-5 text-light">
         <h1 class="display-5 fw-bold"><i class="bi bi-list-columns-reverse"></i> Agendar citas médicas</h1>
         <p class="col-md-8 fs-4">Agregar citas para los pacientes registrados en el sistema.</p>
-        <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar cita</button>
-        <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCita"><i class="bi bi-calendar-week-fill"></i> Ver citas</button>
+        <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar cita</button>
+        <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCita"><i class="bi bi-calendar-week-fill"></i> Ver citas</button>
         <!-- <a href="citas.php" class="btn btn-primary btn-lg" type="button" ><i class="bi bi-calendar-week-fill"></i> Ver citas</a> -->
       </div>
     </div>
@@ -155,15 +156,16 @@ include('prcd/conn.php');
         <div class="h-100 p-5 text-white bg-dark rounded-3">
           <h2><i class="bi bi-person-bounding-box"></i> Pacientes registrados</h2>
           <p>Examinar los pacientes registrados y dar de alta.</p>
-          <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPaciente"><i class="bi bi-plus-circle"></i> Alta de pacientes</button>
-          <a href="pacientes.php" class="btn btn-outline-light" type="button"><i class="bi bi-search"></i> Ver pacientes</a>
+          <button class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalPaciente"><i class="bi bi-plus-circle"></i> Alta de pacientes</button>
+          <a href="pacientes.php" class="btn btn-outline-info" type="button"><i class="bi bi-search"></i> Ver pacientes</a>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="h-100 p-5 bg-light border rounded-3">
+        <!-- <div class="h-100 p-5 bg-light border rounded-3"> -->
+        <div class="h-100 p-5 bg-info rounded-3 text-light">
           <h2><i class="bi bi-person-lines-fill"></i>  Catálogo de diagnóstico</h2>
-          <p>Visualizar el catálogo de diagnñotico con costos.</p>
-          <a href="catalogo.php" class="btn btn-outline-secondary" type="button">Ver catálogo</a>
+          <p>Visualizar el catálogo de diagnóstico con costos.</p>
+          <a href="catalogo.php" class="btn btn-outline-light" type="button">Ver catálogo</a>
         </div>
       </div>
     </div>
