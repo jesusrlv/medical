@@ -1,22 +1,22 @@
 #diente1 {
-    position: relative;
-    top: 117px; /* ajustar los valores para mover la imagen */
-    left: 10px;
-    width: 54px;
-    height: 81px;
+    /* position: absolute;
+    top: 117px; 
+    left: 10px; */
+    width: 2rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
-    margin: 0px;
+    /* margin: 0px; */
     /* border:2px solid #fff; */
     /* display: block; */
 }
 
 
 #diente2 {
-    position: relative;
+    position: absolute;
     top: 54px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 0px;
     /* border:2px solid #fff; */
@@ -25,11 +25,11 @@
 
 
 #diente3 {
-    position: relative;
+    position: absolute;
     top: 18px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 0px;
     /* border:2px solid #fff; */
@@ -37,11 +37,11 @@
 }
 
 #diente4 {
-    position: relative;
+    position: absolute;
     top: -18px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 0px;
     /* border:2px solid #fff; */
@@ -49,11 +49,11 @@
 }
 
 #diente5 {
-    position: relative;
+    position: absolute;
     top: -81px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 1px;
     /* border:2px solid #fff; */
@@ -61,11 +61,11 @@
 }
 
 #diente6 {
-    position: relative;
+    position: absolute;
     top: -90px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 1px;
     /* border:2px solid #fff; */
@@ -73,7 +73,7 @@
 }
 
 #diente6 {
-    position: relative;
+    position: absolute;
     top: -108px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
@@ -85,7 +85,7 @@
 }
 
 #diente7 {
-    position: relative;
+    position: absolute;
     top: -117px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
@@ -97,7 +97,7 @@
 }
 
 #diente8 {
-    position: relative;
+    position: absolute;
     top: -126px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
@@ -109,7 +109,7 @@
 }
 
 #diente9 {
-    position: relative;
+    position: absolute;
     top: -126px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
@@ -121,8 +121,8 @@
 }
 
 #diente10 {
-    position: relative;
-    top: -45px; /* ajustar los valores para mover la imagen */
+    position: absolute;
+    top: -117px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
     height: 81px;
@@ -133,8 +133,8 @@
 }
 
 #diente11 {
-    position: relative;
-    top: -45px; /* ajustar los valores para mover la imagen */
+    position: absolute;
+    top: -108px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
     height: 81px;
@@ -145,8 +145,8 @@
 }
 
 #diente12 {
-    position: relative;
-    top: -45px; /* ajustar los valores para mover la imagen */
+    position: absolute;
+    top: -90px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;
     height: 81px;
@@ -157,11 +157,12 @@
 }
 
 #diente13 {
-    position: relative;
-    top: -45px; /* ajustar los valores para mover la imagen */
+    position: absolute;
+    top: -81px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    /* width: 54px; */
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 1px;
     /* border:2px solid #fff; */
@@ -169,11 +170,11 @@
 }
 
 #diente14 {
-    position: relative;
-    top: -45px; /* ajustar los valores para mover la imagen */
+    position: absolute;
+    top: -18px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 1px;
     /* border:2px solid #fff; */
@@ -181,11 +182,11 @@
 }
 
 #diente15 {
-    position: relative;
+    position: absolute;
     top: -45px; /* ajustar los valores para mover la imagen */
     left: 10px;
-    width: 54px;
-    height: 81px;
+    width: 3rem;
+    /* height: 81px; */
     /* border-radius: 50%; */
     margin: 1px;
     /* border:2px solid #fff; */
@@ -193,7 +194,7 @@
 }
 
 #diente16 {
-    position: relative;
+    position: absolute;
     top: -45px; /* ajustar los valores para mover la imagen */
     left: 10px;
     width: 54px;

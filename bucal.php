@@ -121,26 +121,29 @@ include('prcd/conn.php');
 <div class="container">
 
       <div class="row">
-          <div class="col-8">
-                <div style="position:static; height: 300px;"></div>
-            <img src="assets/4x/1.png" id="diente1" alt="">
-            <img src="assets/4x/2.png" id="diente2" alt="">
-            <img src="assets/4x/3.png" id="diente3" alt="">
-            <img src="assets/4x/4.png" id="diente4" alt="">
-            <img src="assets/4x/5.png" id="diente5" alt="">
-            <img src="assets/4x/6.png" id="diente6" alt="">
-            <img src="assets/4x/7.png" id="diente7" alt="">
-            <img src="assets/4x/8.png" id="diente8" alt="">
-            <img src="assets/4x/9.png" id="diente9" alt="">
-            <img src="assets/4x/10.png" id="diente10" alt="">
-            <img src="assets/4x/11.png" id="diente11" alt="">
-            <img src="assets/4x/12.png" id="diente12" alt="">
-            <img src="assets/4x/13.png" id="diente13" alt="">
-            <img src="assets/4x/14.png" id="diente14" alt="">
-            <img src="assets/4x/15.png" id="diente15" alt="">
-            <img src="assets/4x/16.png" id="diente16" alt="">
+          <div class="col-4">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> diente 1</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><img src="assets/4x/2.png" id="" width="14" alt=""> diente 2</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"> <img src="assets/4x/3.png" id="" width="14" alt=""> diente 3</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-success"> <img src="assets/4x/4.png" id="" width="14" alt=""> diente 4</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-danger"><img src="assets/4x/5.png" id="" width="14" alt=""> diente 5</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-warning"><img src="assets/4x/6.png" id="" width="14" alt=""> diente 6</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-info"><img src="assets/4x/7.png" id="" width="14" alt=""> diente 7</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-light"><img src="assets/4x/8.png" id="" width="14" alt=""> diente 8</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-dark"><img src="assets/4x/9.png" id="" width="14" alt=""> diente 9</a>
+              <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> diente 10</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><img src="assets/4x/2.png" id="" width="14" alt=""> diente 11</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"> <img src="assets/4x/3.png" id="" width="14" alt=""> diente 12</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-success"> <img src="assets/4x/4.png" id="" width="14" alt=""> diente 13</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-danger"><img src="assets/4x/5.png" id="" width="14" alt=""> diente 14</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-warning"><img src="assets/4x/6.png" id="" width="14" alt=""> diente 15</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-info"><img src="assets/4x/7.png" id="" width="14" alt=""> diente 16</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-light"><img src="assets/4x/8.png" id="" width="14" alt=""> diente 8</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-dark"><img src="assets/4x/9.png" id="" width="14" alt=""> diente 9</a>
+            </div>
           </div>
-          <div class="col-3>
+          <div class="col-8>
 
           </div>
       </div>
