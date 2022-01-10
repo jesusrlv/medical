@@ -110,19 +110,29 @@ include('prcd/conn.php');
 </main>
 
 <body>
-    <div class="container">
+    <div class="container mb-5">
     <p class="h4 mt-5">
-  <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
-</p>
-<hr>
+      <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
+    </p>
+    <hr>
+
+    <p class="h4 mt-5 bg-info text-light p-4 rounded">
+      <strong><i class="bi bi-list-columns-reverse"></i> Expediente</strong> 
+    </p>
     </div>
 <main>
 
-<div class="container">
+<div class="container container-fluid mb-3">
 
-      <div class="row">
-          <div class="col-4">
-            <div class="list-group">
+      <div class="row row-cols-2">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+          <select class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example">
+            <option selected>Seleccione pieza dental</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+            <!-- <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> diente 1</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><img src="assets/4x/2.png" id="" width="14" alt=""> diente 2</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"> <img src="assets/4x/3.png" id="" width="14" alt=""> diente 3</a>
@@ -141,10 +151,95 @@ include('prcd/conn.php');
               <a href="#" class="list-group-item list-group-item-action list-group-item-info"><img src="assets/4x/7.png" id="" width="14" alt=""> diente 16</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-light"><img src="assets/4x/8.png" id="" width="14" alt=""> diente 8</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-dark"><img src="assets/4x/9.png" id="" width="14" alt=""> diente 9</a>
-            </div>
-          </div>
-          <div class="col-8>
+            </div> -->
 
+
+          </div>
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body">
+                <strong>Expediente del paciente</strong>
+                <hr>
+                <p>
+                <label for="inputState" class="form-label"><strong>Diagnóstico: </strong></label>
+                <textarea type="text" class="form-control" id="formGroupExampleInput" placeholder="Escriba diagnóstico..."></textarea> 
+                </p>
+                <p><strong>Imágenes:</strong> 
+                <a href="#"><i class="bi bi-plus-circle"></i></a>
+                <!-- inicia galeria -->
+                <div class="row row-cols-auto">
+                  <div class="col-md-2">
+                    <div class="thumbnail rounded">
+                      <a href="#">
+                        <img src="assets/img_dental/dental_01.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="thumbnail rounded">
+                      <a href="#">
+                        <img src="assets/img_dental/dental_02.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="thumbnail rounded">
+                      <a href="#">
+                        <img src="assets/img_dental/dental_03.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="thumbnail rounded">
+                      <a href="#">
+                        <img src="assets/img_dental/dental_04.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="thumbnail rounded">
+                      <a href="#">
+                        <img src="assets/img_dental/dental_04.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                   <div class="col-md-2"> <!-- Imágen de agregar -->
+                    <div class="thumbnail rounded bg-light" style="width:100px; height:100px;">
+                      <a href="#">
+                      <i class="bi bi-plus-circle p-1" style="max-width:100px; height:100px; border-radius:5px;font-size:4.3rem; border-style: dashed;"></i></a>
+                        <!-- <img src="assets/img_dental/dental_04.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;"> -->
+                        <!-- <div class="caption">
+                          <p>Lorem ipsum...</p>
+                        </div> -->
+                      </a>
+                    </div>
+                  </div>
+                  
+                </div><!-- fin galeria -->
+                </p>
+                 <p> 
+                    <label for="inputState" class="form-label"><strong>Procedimiento: </strong></label>
+                    <select id="inputState" class="form-select"></p>
+                      <option selected>Seleccione el procedimiento...</option>
+                      <option>...</option>
+                    </select>
+              </div>
+            </div>
           </div>
       </div>
 
