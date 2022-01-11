@@ -129,6 +129,7 @@
       <th scope="col">Edad</th>
       <th scope="col">Sexo</th>
       <th scope="col">Acciones</th>
+      <th scope="col">Expediente</th>
   </thead>
   <tbody>
   <tr class="text-center">
@@ -137,6 +138,7 @@
       <td>Otto</td>
       <td>@mdo</td>
       <td><i class="bi bi-pencil-square"></i></td>
+      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
     </tr>
     <tr class="text-center">
       <th scope="row">2</th>
@@ -144,6 +146,7 @@
       <td>Thornton</td>
       <td>@fat</td>
       <td><i class="bi bi-pencil-square"></i></td>
+      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
     </tr>
     <tr class="text-center">
     <th scope="row">2</th>
@@ -151,6 +154,7 @@
       <td>Thornton</td>
       <td>@fat</td>
       <td><i class="bi bi-pencil-square"></i></td>
+      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
     </tr>
   </tbody>
 </table>

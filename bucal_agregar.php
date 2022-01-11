@@ -120,7 +120,7 @@ include('prcd/conn.php');
       <strong><i class="bi bi-list-columns-reverse"></i> Expediente (alta de procedimiento)</strong> 
     </p>
     <hr>
-    <p class="h5 mt-2 bg-secondary text-light p-4 rounded">
+    <p class="h5 mt-2 bg-light text-secondary p-4 rounded">
       <strong><i class="bi bi-person-circle"></i> Nombre del paciente: </strong>XXXX XXXX XXXXX 
     </p>
     </div>
@@ -162,7 +162,7 @@ include('prcd/conn.php');
           <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <strong><i class="bi bi-person-bounding-box"></i> Expediente del paciente</strong>
+                <strong><i class="bi bi-person-bounding-box"></i> Historial clínico</strong>
                 <hr>
                 <p>
                 <label for="inputState" class="form-label"><strong><i class="bi bi-clipboard-data"></i> Diagnóstico: </strong></label>
