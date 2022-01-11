@@ -128,6 +128,9 @@ include('prcd/conn.php');
       <div class="alert alert-primary" role="alert">
         <span class="text-center"><i class="fas fa-teeth-open"></i> Superiores</span>
       </div>
+      <div class="alert alert-primary" role="alert">
+        <span class="text-center"><i class="fas fa-teeth-open"></i> Inferiores</span>
+      </div>
     </div>
 
     
