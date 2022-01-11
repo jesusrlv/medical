@@ -117,7 +117,7 @@ include('prcd/conn.php');
     <hr>
 
     <p class="h4 mt-5 bg-info text-light p-4 rounded">
-      <strong><i class="bi bi-list-columns-reverse"></i> Expediente general</strong> 
+      <strong><i class="bi bi-list-columns-reverse"></i> Expediente (alta de procedimiento)</strong> 
     </p>
     <hr>
     <p class="h5 mt-2 bg-secondary text-light p-4 rounded">
@@ -130,13 +130,13 @@ include('prcd/conn.php');
 
       <div class="row row-cols-2">
           <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-          <!-- <select class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example">
+          <select class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example">
             <option selected>Seleccione pieza dental</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
-        </select> -->
-            <div class="list-group">
+        </select>
+            <!-- <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> diente 1</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-primary"><img src="assets/4x/2.png" id="" width="14" alt=""> diente 2</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-secondary"> <img src="assets/4x/3.png" id="" width="14" alt=""> diente 3</a>
@@ -153,30 +153,17 @@ include('prcd/conn.php');
               <a href="#" class="list-group-item list-group-item-action list-group-item-danger"><img src="assets/4x/5.png" id="" width="14" alt=""> diente 14</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-warning"><img src="assets/4x/6.png" id="" width="14" alt=""> diente 15</a>
               <a href="#" class="list-group-item list-group-item-action list-group-item-info"><img src="assets/4x/7.png" id="" width="14" alt=""> diente 16</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-light"><img src="assets/4x/8.png" id="" width="14" alt=""> diente 17</a>
-              <a href="#" class="list-group-item list-group-item-action list-group-item-dark"><img src="assets/4x/9.png" id="" width="14" alt=""> diente 18</a>
-            </div>
-            <hr>
-            <div class="list-group mt-3">
-              <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> Lengua</a>
-              <a href="#" class="list-group-item list-group-item-action"><img src="assets/4x/1.png" id="" width="14" alt=""> Otro</a>
-              
-            </div>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-light"><img src="assets/4x/8.png" id="" width="14" alt=""> diente 8</a>
+              <a href="#" class="list-group-item list-group-item-action list-group-item-dark"><img src="assets/4x/9.png" id="" width="14" alt=""> diente 9</a>
+            </div> -->
 
 
           </div>
           <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <div class="row border-bottom mb-3 pb-3">
-                    <div class="col-10">
-                      <strong class="h3"><i class="bi bi-person-bounding-box"></i> Expediente del paciente</strong>
-                    </div>
-                    <div class="col-2">
-                    <button type="button" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Agregar</button>
-                    </div>
-                </div>
-               
+                <strong><i class="bi bi-person-bounding-box"></i> Expediente del paciente</strong>
+                <hr>
                 <p>
                 <label for="inputState" class="form-label"><strong><i class="bi bi-clipboard-data"></i> Diagnóstico: </strong></label>
                 <textarea type="text" class="form-control" id="formGroupExampleInput" placeholder="Escriba DX..."></textarea> 
