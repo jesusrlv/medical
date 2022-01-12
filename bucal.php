@@ -140,13 +140,13 @@ include('prcd/conn.php');
                         <span class="visually-hidden">unread messages</span>
                       </span>
                     </button>
-                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do molar
+                    <button type="button" class="btn btn-outline-secondary position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-tooth"></i> 2do molar
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
                         99+
                         <span class="visually-hidden">unread messages</span>
                       </span>
                     </button>
-                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er molar
+                    <button type="button" class="btn btn-outline-secondary position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom"><i class="fas fa-tooth"></i> 1er molar
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
                         99+
                         <span class="visually-hidden">unread messages</span>
@@ -489,3 +489,27 @@ include('prcd/conn.php');
 </div>
 
 <!-- Modals -->
+
+<!-- Offcanvas -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Historial dental</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    ...
+  </div>
+</div>
+<!-- Offcanvas -->
+
+<!-- Offcanvas -->
+<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Historial dental</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body small">
+    ...
+  </div>
+</div>
+<!-- Offcanvas -->
