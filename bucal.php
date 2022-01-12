@@ -128,9 +128,243 @@ include('prcd/conn.php');
       <div class="alert alert-primary" role="alert">
         <span class="text-center"><i class="fas fa-teeth-open"></i> Superiores</span>
       </div>
+      <!-- inicia sección de superiores -->
+      <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group me-2 w-100" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-tooth"></i> Muela juicio
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Canino
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo lateral
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo central
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>        
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group me-2 w-100" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo central
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo lateral
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Canino
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="z-index:100;">
+                        5
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Muela juicio
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" style="z-index:100;">
+                        0
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- fin sección de superiores -->
       <div class="alert alert-primary" role="alert">
         <span class="text-center"><i class="fas fa-teeth-open"></i> Inferiores</span>
       </div>
+      <!-- inicia sección de superiores -->
+      <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group me-2 w-100" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Muela juicio
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Canino
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo lateral
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo central
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>        
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                  <div class="btn-group me-2 w-100" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo central
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Incisivo lateral
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Canino
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do premolar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 1er molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="z-index:100;">
+                        99+
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> 2do molar
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" style="z-index:100;">
+                        5
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary position-relative"><i class="fas fa-tooth"></i> Muela juicio
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" style="z-index:100;">
+                        0
+                        <span class="visually-hidden">unread messages</span>
+                      </span>
+                    </button>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- fin sección de superiores -->
     </div>
 
     
@@ -163,3 +397,95 @@ include('prcd/conn.php');
       
   </body>
 </html>
+
+
+<!-- Modals -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos sobre la pieza dental XXXXX</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <div class="card">
+              <div class="card-body">
+                <div class="row border-bottom mb-3 pb-3">
+                    <div class="col-10">
+                      <strong class="h3"><i class="bi bi-person-bounding-box"></i> Historial clínico</strong>
+                    </div>
+                    <div class="col-2">
+                    <a href="bucal_agregar.php" type="button" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Agregar</a>
+                    </div>
+                </div>
+               
+                <p class="ms-5"> 
+                <label for="inputState" class="form-label"><strong><i class="bi bi-clipboard-data"></i> Diagnóstico: </strong></label>
+                <table class="table table-striped table-sm table-hover">
+                  <thead class="table-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Diagnóstico</th>
+                      <th scope="col"><i class="bi bi-calendar3"></i> Fecha</th>
+                      <th scope="col">Procedimiento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>                
+                </p>
+                
+                 <p class="border-top ms-4"> 
+                    <label for="inputState" class="form-label p-2"><strong><i class="bi bi-clipboard-plus"></i> Procedimientos aplicados: </strong></label>
+                    <table class="table table-striped table-sm table-hover">
+                  <thead class="table-dark">
+                  <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Procedimiento</th>
+                      <th scope="col"><i class="bi bi-calendar3"></i> Fecha</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modals -->

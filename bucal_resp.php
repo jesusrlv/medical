@@ -380,8 +380,6 @@ include('prcd/conn.php');
                   </tbody>
                 </table>
               </div>
-              
-              <!-- <p class="mb-2"><button type="button" class="btn btn-primary bt-lg"><i class="bi bi-cloud-plus-fill"></i> Guardar</button></p> -->
             </div>
           </div>
       </div>
