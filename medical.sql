@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 29-11-2021 a las 22:21:15
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.1
+-- Tiempo de generación: 26-02-2025 a las 23:36:56
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,14 +34,14 @@ CREATE TABLE `citas` (
   `id_paciente` int(11) NOT NULL,
   `diagnostico` int(11) NOT NULL,
   `observaciones` text COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL
+  `estatus` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `citas`
 --
 
-INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `observaciones`, `status`) VALUES
+INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `observaciones`, `estatus`) VALUES
 (1, '2021-11-24', '12:30:00', 1, 1, 'NA', 1),
 (2, '2021-11-25', '10:15:00', 2, 1, '2', 0),
 (3, '2021-11-29', '12:00:00', 2, 1, 'na', 0),
@@ -53,7 +52,9 @@ INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `obser
 (8, '2021-11-30', '03:03:00', 2, 1, 'JJ', 1),
 (9, '2022-01-01', '03:03:00', 1, 1, 'JJ', 1),
 (10, '2021-12-06', '05:05:00', 1, 1, 'NA', 0),
-(11, '2021-11-29', '23:02:00', 2, 1, 'na 11', 0);
+(11, '2021-11-29', '23:02:00', 2, 1, 'na 11', 0),
+(12, '2025-02-26', '10:09:47', 2, 1, 'x', 1),
+(13, '2025-02-26', '10:00:00', 1, 1, 'q', 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +162,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `diagnostico`
