@@ -38,13 +38,17 @@ include('prcd/conn.php');
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
-    
-<link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
-    <!-- Bootstrap core CSS -->
-<link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-<link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    <link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
+        <!-- Bootstrap core CSS -->
+    <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="js/dashboard.js"></script>
 
     <style>
       .bd-placeholder-img {
@@ -126,14 +130,14 @@ include('prcd/conn.php');
       </div>
     </div>
   </header> 
-  <div class="b-example-divider"></div>
+  <!-- <div class="b-example-divider"></div> -->
 
   
 </main>
 
 <body>
     <div class="container">
-    <p class="h4 mt-5">
+    <p class="h4 mt-4">
   <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
 </p>
 <hr>
@@ -146,7 +150,7 @@ include('prcd/conn.php');
         <h1 class="display-5 fw-bold"><i class="bi bi-list-columns-reverse"></i> Agendar citas médicas</h1>
         <p class="col-md-8 fs-4">Agregar citas para los pacientes registrados en el sistema.</p>
         <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar cita</button>
-        <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalCita"><i class="bi bi-calendar-week-fill"></i> Ver citas</button>
+        <button class="btn btn-outline-info btn-lg" type="button" onclick="dateMini()"><i class="bi bi-calendar-week-fill"></i> Ver citas</button>
         <!-- <a href="citas.php" class="btn btn-primary btn-lg" type="button" ><i class="bi bi-calendar-week-fill"></i> Ver citas</a> -->
       </div>
     </div>
@@ -174,7 +178,7 @@ include('prcd/conn.php');
     </main>
 </body>
 
-<div class="b-example-divider"></div>
+<!-- <div class="b-example-divider"></div> -->
 
 <div class="container">
   <footer class="py-3 my-4">
@@ -410,9 +414,9 @@ include('prcd/conn.php');
 <div class="modal fade" id="exampleModalCita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark text-info">
         <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-calendar-week-fill"></i> CITAS PROGRAMADAS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <form action="prcd/prcd_agregar_paciente.php" method="POST">
@@ -420,78 +424,25 @@ include('prcd/conn.php');
       <div class="modal-body">
 
       <div class="alert" style=" color:#918383;" role="alert">
-      <span class="h4"><i class="bi bi-list-columns-reverse"></i> AGENDA</span>
+      <span class="h4"><i class="bi bi-list-columns-reverse"></i> AGENDA</span> (<span class="h6" id="dateAgendaMini"></span>)
         <hr>
-
-        <div class="container py-4">
-
-      <table class="table table-bordered table-sm table-hover table-responsive">
-        <thead class="table-dark">
-        <tr class="text-center fw-lighter">
-            <th scope="col">#</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Diagnóstico</th>
-            <th scope="col">Observaciones</th>
-            <th scope="col">Estatus</th>
-        </thead>
-        <tbody>
-        <?php
-
-          // date_default_timezone_set('America/Mexico_City');
-          // setlocale(LC_TIME, 'es_MX.UTF-8');
-          // $fecha_actual=strftime("%Y-%m-%d");
-          // $hora_actual=strftime("%H:%M:%S");
-
-          date_default_timezone_set('America/Mexico_City');
-                  setlocale(LC_TIME, 'es_MX.UTF-8');
-                  $fecha_sistema = strftime("%Y-%m-%d");
-
-          $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
-          $resultado_consulta2 = $conn->query($consulta2);
-          $n=0;
-          while ($row_consulta2 = $resultado_consulta2->fetch_assoc()){
-            echo ' <tr class="text-center text-white" style="background-color:#61A0DF;">';
-            $n++;
-            echo '<th scope="row">'.$n.'</th>';
-            echo '<th scope="row" class="fw-light">'.date('d/m/Y',strtotime($row_consulta2['fecha'])).'</th>';
-            // echo '<th scope="row" class="fw-light">'.date("H:i",time($row_consulta2['hora'])).'</th>';
-            echo '<th scope="row" class="fw-light">'.date("g:i A",strtotime($row_consulta2['hora'])).'</th>';
-            // echo '<th scope="row">'.$row_consulta2['id_paciente'].'</th>';
-              $id_paciente=$row_consulta2['id_paciente'];
-              $paciente = "SELECT * FROM paciente WHERE id ='$id_paciente'";
-              $resultado_paciente= $conn->query($paciente);
-              $row_paciente=$resultado_paciente->fetch_assoc();
-              echo '<th scope="row" class="fw-light">'.utf8_encode($row_paciente['nombre']).'</th>';
-
-            // echo '<th scope="row">'.$row_consulta2['diagnostico'].'</th>';
-            $id_diagnostico=$row_consulta2['diagnostico'];
-            $diagnostico = "SELECT * FROM diagnostico WHERE id ='$id_diagnostico'";
-            $resultado_diagnostico= $conn->query($diagnostico);
-            $row_diagnostico=$resultado_diagnostico->fetch_assoc();
-            echo '<th scope="row" class="fw-light">'.utf8_encode($row_diagnostico['nombre']).'</th>';
-
-            echo '<th scope="row" class="fw-light">'.$row_consulta2['observaciones'].'</th>';
-            // echo '<th scope="row">'.$row_consulta2['status'].'</th>';
-            if ($row_consulta2['status']==1){
-              
-              echo '<th scope="row" class="bg-primary text-light fw-light"><i class="bi bi-check-circle-fill"></i> Acudió</th>';
-            }
-            else{
-              echo '<th scope="row" class="bg-danger text-light fw-light"><i class="bi bi-x-circle-fill"></i> No acudió</th>';
-            }
-            echo '</tr>';
-          }
-
-        ?>
-          </tr>
-          
-        </tbody>
-      </table>
-
+          <div class="container py-4">
+            <table class="table table-bordered table-sm table-hover table-responsive">
+              <thead class="table-dark">
+                <tr class="text-center fw-lighter">
+                    <th scope="col">#</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Diagnóstico</th>
+                    <th scope="col">Observaciones</th>
+                    <th scope="col">Estatus</th>
+                </tr> 
+              </thead>
+              <tbody id="tablaMini"></tbody>
+            </table>
           </div>
-        </div>
+      </div>
 
         </div>
         <!-- fin alert -->
