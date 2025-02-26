@@ -4,15 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="">
     <meta name="generator" content="Hugo 0.88.1">
     <title>Medical</title>
 
     <link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  
+    <script src="js/acceso.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +59,7 @@
     <div class="checkbox mb-3">
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="button" onclick="acceso()"><i class="bi bi-person-circle"></i> Accesso</button>
-    <p class="mt-5 mb-3 text-muted">REDDeploy &copy; 2021</p>
+    <p class="mt-5 mb-3 text-muted">REDDeploy &copy; 2025</p>
   </form>
 </main>
 
