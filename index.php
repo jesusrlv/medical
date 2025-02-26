@@ -40,25 +40,22 @@
   <body class="text-center">
     
 <main class="form-signin">
-  <form action="prcd/prcd_validacion.php" method="POST">
+  <form>
     <img class="mb-4" src="css/assets/brand/dental.png" alt="" width="81" height="81">
     <h1 class="h3 mb-3 fw-normal">DENTAL | Acceso</h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="usr">
-      <label for="floatingInput">Usuario</label>
+      <input type="text" class="form-control" id="usr" placeholder="name@example.com" name="usr">
+      <label for="usr">Usuario</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pwd">
-      <label for="floatingPassword">Contraseña</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Password" name="pwd">
+      <label for="pwd">Contraseña</label>
     </div>
 
     <div class="checkbox mb-3">
-      <!-- <label>
-        <input type="checkbox" value="remember-me"> Remember me
-      </label> -->
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit"><i class="bi bi-person-circle"></i> Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="button" onclick="acceso()"><i class="bi bi-person-circle"></i> Accesso</button>
     <p class="mt-5 mb-3 text-muted">REDDeploy &copy; 2021</p>
   </form>
 </main>
