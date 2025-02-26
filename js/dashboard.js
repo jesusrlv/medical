@@ -31,3 +31,40 @@ function cargarAgendaMini() {
         }
     });
 }
+
+function agendarCitasGuardar() {
+    $.ajax({
+        url: "prcd/prcd_agregar_cita.php",
+        method: "POST",
+        data: $("#formAgendarCitas").serialize(),
+        dataType: "json",
+        success: function(data){
+            let datos = JSON.parse(JSON.stringify(data));
+            let success = datos.success;
+
+            if(success == 1){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cita agendada correctamente',
+                    confirmButtonColor: '#3085d6',
+                    footer: 'MediDent App',
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        $("#agendarCitas").modal("hide");
+                    }
+                });
+            }
+            else{
+                console.log(datos.error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al agendar la cita',
+                    confirmButtonColor: '#3085d6',
+                    footer: 'MediDent App',
+                });
+            }
+
+            cargarAgendaMini();
+        }
+    });
+}
