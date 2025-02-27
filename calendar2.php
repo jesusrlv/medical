@@ -47,6 +47,8 @@ include('prcd/conn.php');
 <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -194,7 +196,6 @@ include('prcd/conn.php');
 
 <div class="row">
   <div class="col-4">
-    <form action="calendar.php" method="POST">
     <select class="form-select" aria-label="Default select example" id="mes" name="mes" required>
       <option selected>Mes</option>
       <option value="1">Enero</option>
@@ -229,7 +230,6 @@ include('prcd/conn.php');
   <div class="col-4">
     <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
   </div>
-</form>
 </div>
 <hr>
 
