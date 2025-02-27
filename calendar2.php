@@ -64,7 +64,7 @@ include('prcd/conn.php');
       #contenedorCalendario {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        gap: 10px;
+        gap: 1px;
       }
 
     .card {
