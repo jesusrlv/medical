@@ -182,14 +182,15 @@ include('prcd/conn.php');
 
 <div class="container">
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3" hidden>
         <li><a href="#" class="nav-link px-2 text-secondary">Inicio</a></li>
         <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
         <!-- <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
         <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
         <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
     </ul>
-    <p class="text-center text-muted">REDDeploy &copy; 2021</p>
+    <hr>
+    <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
 </div>
