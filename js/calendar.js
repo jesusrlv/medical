@@ -112,10 +112,10 @@ function generarCalendario() {
     // Crear espacios vacíos para los días que no corresponden al mes
     for (let i = 0; i < diaSemanaInicio; i++) {
         const espacioVacio = document.createElement("div");
-        espacioVacio.classList.add("card", "border-secondary", "bg-secondary", "text-light");
+        espacioVacio.classList.add("card", "border-secondary", "bg-dark", "text-light");
         espacioVacio.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title text-center"><i class="bi bi-circle-fill text-light"></i></h5>
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <h5 class="card-title text-center"><i class="bi bi-circle-fill text-info"></i></h5>
             </div>
         `;
         contenedorCalendario.appendChild(espacioVacio);
@@ -153,10 +153,10 @@ function generarCalendario() {
     const espaciosFinales = (7 - (totalDias % 7)) % 7; // Calcular espacios vacíos al final
     for (let i = 0; i < espaciosFinales; i++) {
         const espacioVacio = document.createElement("div");
-        espacioVacio.classList.add("card", "border-secondary", "bg-secondary", "text-light");
+        espacioVacio.classList.add("card", "border-secondary", "bg-dark", "text-info");
         espacioVacio.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title text-center"><i class="bi bi-circle-fill text-light"></i></h5>
+            <div class="card-body d-flex align-items-center justify-content-center">
+                <h5 class="card-title text-center"><i class="bi bi-circle-fill text-info"></i></h5>
             </div>
         `;
         contenedorCalendario.appendChild(espacioVacio);
@@ -169,7 +169,7 @@ function generarCalendario() {
         dataType: "json",
         success: function (data) {
             // Mostrar los datos en las cards
-            
+
             console.log(data);
             // Recorrer los datos y actualizar las cards
             for (const fecha in data) {
