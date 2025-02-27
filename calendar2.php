@@ -35,7 +35,7 @@ include('prcd/conn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dental | Inicio</title>
+    <title>Dental | Agenda</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
@@ -62,14 +62,50 @@ include('prcd/conn.php');
         }
       }
       #contenedorCalendario {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-}
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+      }
 
-.card {
-    min-height: 200px; /* Ajusta la altura según sea necesario */
-}
+    .card {
+        min-height: 200px; /* Ajusta la altura según sea necesario */
+
+    }
+    /* Estilos para los encabezados de los días de la semana */
+    .card-header {
+        background-color: #343a40; /* Fondo oscuro */
+        color: white; /* Texto blanco */
+        font-weight: bold; /* Texto en negrita */
+        text-align: center; /* Centrar texto */
+        padding: 10px; /* Espaciado interno */
+    }
+    /* Estilos para las cards vacías */
+    .card.border-secondary {
+        border-color: #6c757d !important; /* Borde gris */
+    }
+
+    .card.bg-secondary {
+        background-color: #6c757d !important; /* Fondo gris */
+    }
+
+    .card.bg-secondary .card-title {
+        opacity: 0.5; /* Texto semi-transparente */
+    }
+
+    /* Estilos para el header del calendario */
+    .header-day {
+       min-height: 100px; /* Reducir a la mitad la altura */
+    }
+
+    .header-day .card-body {
+        padding: 5px; /* Reducir el espaciado interno */
+    }
+
+    .header-day h5 {
+        font-size: 14px; /* Reducir el tamaño del texto */
+        font-weight: bold; /* Texto en negrita */
+        margin: 0; /* Eliminar margen */
+    }
     </style>
 
     
@@ -159,7 +195,7 @@ include('prcd/conn.php');
 <div class="row">
   <div class="col-4">
     <form action="calendar.php" method="POST">
-    <select class="form-select" aria-label="Default select example" name="mes" required>
+    <select class="form-select" aria-label="Default select example" id="mes" name="mes" required>
       <option selected>Mes</option>
       <option value="1">Enero</option>
       <option value="2">Febrero</option>
@@ -177,7 +213,7 @@ include('prcd/conn.php');
    
   </div>
   <div class="col-4">
-    <select class="form-select" aria-label="Default select example" name="annio" required>
+    <select class="form-select" aria-label="Default select example" id="annio" name="annio" required>
       <option selected required>Año</option>
       <option value="2021">2021</option>
       <option value="2022">2022</option>
@@ -192,8 +228,8 @@ include('prcd/conn.php');
   </div>
   <div class="col-4">
     <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
-    </form>
   </div>
+</form>
 </div>
 <hr>
 
@@ -205,18 +241,10 @@ include('prcd/conn.php');
     </main>
 </body>
 
-<div class="b-example-divider"></div>
 
 <div class="container">
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Inicio</a></li>
-        <li><a href="citas.php" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
-        <!-- <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
-        <li><a href="pacientes.php" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
-        <li><a href="catalogo.php" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
-    </ul>
-    <p class="text-center text-muted">REDDeploy &copy; 2021</p>
+    <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
 </div>
