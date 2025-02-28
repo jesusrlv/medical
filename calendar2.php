@@ -108,6 +108,38 @@ include('prcd/conn.php');
         font-weight: bold; /* Texto en negrita */
         margin: 0; /* Eliminar margen */
     }
+
+    /* Efecto hover para dispositivos de escritorio */
+    .cardActivo:hover {
+        transform: scale(1.05); /* Escalar la card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+        transition: transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    }
+
+    /* Efecto para dispositivos móviles (clase activa) */
+    .cardActivo.active {
+        transform: scale(1.05); /* Escalar la card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+        transition: transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    }
+    /* Estilo para actividades concretadas */
+.actividad-concretada {
+    background-color: rgba(0, 123, 255, 0.1); /* Azul leve */
+    border-left: 4px solid #007bff; /* Borde azul */
+}
+
+/* Estilo para actividades no concretadas */
+.actividad-no-concretada {
+    background-color: rgba(255, 0, 0, 0.1); /* Rojo leve */
+    border-left: 4px solid #dc3545; /* Borde rojo */
+}
+
+/* Estilo general para cada actividad */
+.list-group-item {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
     </style>
 
     
@@ -178,13 +210,13 @@ include('prcd/conn.php');
 <body>
     <div class="container">
 
-    <p class="h4 mt-5">
+    <p class="h4 mt-4">
         <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> Usuario.
       </p>
 
     <hr>
 
-      <p class="h4 mt-5 bg-info text-light p-4 rounded">
+      <p class="h4 mt-3 bg-info text-light p-4 rounded">
         <strong><i class="bi bi-list-columns-reverse"></i> Agenda</strong> 
       </p>
 
@@ -192,6 +224,7 @@ include('prcd/conn.php');
 
     </div>
 <main>
+
 <div class="container py-4">
 
 <div class="row">
@@ -258,24 +291,22 @@ include('prcd/conn.php');
 </html>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<div class="modal fade" id="modalActividades" tabindex="-1" aria-labelledby="modalActividadesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Lista de actividades -->
+                <div id="lista-actividades" class="list-group" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Las actividades se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-
-<script>
-    
-</script>

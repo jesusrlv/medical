@@ -56,7 +56,7 @@ function generarCalendario2() {
                 <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: 0</p>
                 <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: 0</p>
                 <p class="card-text small">
-                    <a href="#" style="text-decoration: none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a href="#" style="text-decoration: none">
                         <i class="bi bi-plus-circle"></i> Agregar
                     </a>
                 </p>
@@ -132,7 +132,7 @@ function generarCalendario() {
 
         const card = document.createElement("div");
         // card.classList.add("card", esHoy ? "bg-info": "border-info", "bg-dark", "text-light");
-        card.classList.add("card", "border-info", esHoy ? "bg-warning" : "bg-dark", "text-light");
+        card.classList.add("card", "cardActivo", "border-info", esHoy ? "bg-warning" : "bg-dark", "text-light");
         card.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> ${dia}</h5>
@@ -143,9 +143,9 @@ function generarCalendario() {
                 <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: <span id="concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: <span id="no-concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small">
-                    <a href="#" style="text-decoration: none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <i class="bi bi-plus-circle"></i> Agregar
-                    </a>
+                    <a href="#" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
+    <i class="bi bi-journal-check"></i> Ver
+</a>
                 </p>
             </div>
         `;
@@ -191,7 +191,91 @@ function generarCalendario() {
             console.error("Error al obtener los datos de las citas:", error);
         }
     });
+
+    // Agregar evento de clic para dispositivos móviles
+    document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function () {
+        // Remover la clase 'active' de todas las cards
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        
+        // Agregar la clase 'active' a la card clickeada
+        this.classList.add('active');
+    });
+});
+
 }
 
 // Llamar a la función para generar el calendario
 generarCalendario();
+
+// Función para abrir el modal y cargar las actividades
+function abrirModalActividades(fecha) {
+    console.log("Fecha recibida:", fecha); // Verificar la fecha recibida
+
+    // Limpiar la lista de actividades
+    const listaActividades = document.getElementById("lista-actividades");
+    listaActividades.innerHTML = "";
+
+    // Hacer la llamada AJAX para obtener las actividades del día
+    $.ajax({
+        url: "query/obtener_actividades.php", // Archivo PHP que obtiene las actividades
+        method: "GET",
+        data: { fecha: fecha }, // Enviar la fecha seleccionada
+        dataType: "json",
+        success: function (data) {
+            console.log("Actividades recibidas:", data);
+
+            // Crear el horario de 8:00 AM a 10:00 PM
+            const horario = generarHorario(8, 22); // 8:00 AM a 10:00 PM
+
+            // Recorrer el horario y agregar las actividades
+            horario.forEach(hora => {
+                const actividad = data.find(act => act.hora === hora); // Buscar actividad en esta hora
+
+                // Crear el elemento de la actividad
+                const item = document.createElement("div");
+                item.classList.add("list-group-item");
+
+                if (actividad) {
+                    // Si hay una actividad en esta hora
+                    item.classList.add(actividad.concretada ? "actividad-concretada" : "actividad-no-concretada");
+                    item.innerHTML = `
+                        <strong>${hora}</strong>: ${actividad.descripcion}
+                    `;
+                } else {
+                    // Si no hay actividad en esta hora
+                    item.innerHTML = `
+                        <strong>${hora}</strong>: Sin actividades programadas.
+                    `;
+                }
+
+                // Agregar la actividad a la lista
+                listaActividades.appendChild(item);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error("Error al obtener las actividades:", error);
+        }
+    });
+
+    // Mostrar el modal
+    const modal = new bootstrap.Modal(document.getElementById('modalActividades'));
+    modal.show();
+}
+
+// Función para generar el horario de 8:00 AM a 10:00 PM
+function generarHorario(horaInicio, horaFin) {
+    const horario = [];
+    for (let hora = horaInicio; hora <= horaFin; hora++) {
+        horario.push(`${hora < 10 ? '0' + hora : hora}:00`); // Formato HH:00
+    }
+    return horario;
+}
+
+// Ejemplo de cómo abrir el modal al hacer clic en un día
+// document.querySelectorAll('.card').forEach(card => {
+//     card.addEventListener('click', function () {
+//         const fecha = this.querySelector('h5').textContent; // Obtener la fecha de la card
+//         abrirModalActividades(fecha); // Abrir el modal con las actividades del día
+//     });
+// });
