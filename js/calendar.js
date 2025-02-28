@@ -126,9 +126,13 @@ function generarCalendario() {
         const fecha = new Date(año, mes, dia);
         const nombreDia = fecha.toLocaleDateString("es-ES", { weekday: "long" }); // Obtener el nombre del día
         const fechaFormateada = fecha.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+        
+        // Verificar si es el día actual
+        const esHoy = fecha.toDateString() === fechaActual.toDateString();
 
         const card = document.createElement("div");
-        card.classList.add("card", "border-info", "bg-dark", "text-light");
+        // card.classList.add("card", esHoy ? "bg-info": "border-info", "bg-dark", "text-light");
+        card.classList.add("card", "border-info", esHoy ? "bg-warning" : "bg-dark", "text-light");
         card.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> ${dia}</h5>
