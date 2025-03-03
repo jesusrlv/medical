@@ -231,18 +231,18 @@ include('prcd/conn.php');
   <div class="col-4">
     <select class="form-select" aria-label="Default select example" id="mes" name="mes" required>
       <option selected>Mes</option>
-      <option value="1">Enero</option>
-      <option value="2">Febrero</option>
-      <option value="3">Marzo</option>
-      <option value="4">Abril</option>
-      <option value="5">Mayo</option>
-      <option value="6">Junio</option>
-      <option value="7">Julio</option>
-      <option value="8">Agosto</option>
-      <option value="9">Septiempre</option>
-      <option value="10">Octubre</option>
-      <option value="11">Noviembre</option>
-      <option value="12">Diciembre</option>
+      <option value="0">Enero</option>
+      <option value="1">Febrero</option>
+      <option value="2">Marzo</option>
+      <option value="3">Abril</option>
+      <option value="4">Mayo</option>
+      <option value="5">Junio</option>
+      <option value="6">Julio</option>
+      <option value="7">Agosto</option>
+      <option value="8">Septiempre</option>
+      <option value="9">Octubre</option>
+      <option value="10">Noviembre</option>
+      <option value="11">Diciembre</option>
     </select>
    
   </div>
@@ -261,7 +261,7 @@ include('prcd/conn.php');
     </select>
   </div>
   <div class="col-4">
-    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
+    <button type="submit" class="btn btn-primary" onclick="cambiarMes()"><i class="bi bi-search"></i> Buscar</button>
   </div>
 </div>
 <hr>
@@ -295,7 +295,7 @@ include('prcd/conn.php');
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día</h5>
+                <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día (<span id="fechaActD"></span>)</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

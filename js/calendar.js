@@ -1,4 +1,4 @@
-function generarCalendario2() {
+function generarCalendario() {
     const contenedorCalendario = document.getElementById("contenedorCalendario");
     const fechaActual = new Date();
     const año = fechaActual.getFullYear();
@@ -18,7 +18,7 @@ function generarCalendario2() {
     const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     diasSemana.forEach(dia => {
         const cardHeader = document.createElement("div");
-        cardHeader.classList.add("card", "border-info", "bg-info", "text-dark", "header-day");
+        cardHeader.classList.add("card", "border-info", "bg-dark", "text-light", "header-day");
         cardHeader.innerHTML = `
             <div class="card-body d-flex align-items-center justify-content-center">
                 <h5 class="card-title m-0">${dia}</h5>
@@ -43,22 +43,27 @@ function generarCalendario2() {
     for (let dia = 1; dia <= ultimoDiaMes; dia++) {
         const fecha = new Date(año, mes, dia);
         const nombreDia = fecha.toLocaleDateString("es-ES", { weekday: "long" }); // Obtener el nombre del día
+        const fechaFormateada = fecha.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+        
+        // Verificar si es el día actual
+        const esHoy = fecha.toDateString() === fechaActual.toDateString();
 
         const card = document.createElement("div");
-        card.classList.add("card", "border-info", "bg-dark", "text-light");
+        // card.classList.add("card", esHoy ? "bg-info": "border-info", "bg-dark", "text-light");
+        card.classList.add("card", "cardActivo", "border-info", esHoy ? "bg-warning" : "bg-dark", "text-light");
         card.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> ${dia}</h5>
                 <hr>
                 <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día: ${nombreDia}</p>
-                <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: 0</p>
+                <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: <span id="citas-${fechaFormateada}">0</span></p>
                 <hr>
-                <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: 0</p>
-                <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: 0</p>
+                <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: <span id="concretadas-${fechaFormateada}">0</span></p>
+                <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: <span id="no-concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small">
-                    <a href="#" style="text-decoration: none">
-                        <i class="bi bi-plus-circle"></i> Agregar
-                    </a>
+                    <a href="#" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
+    <i class="bi bi-journal-check"></i> Ver
+</a>
                 </p>
             </div>
         `;
@@ -70,7 +75,7 @@ function generarCalendario2() {
     const espaciosFinales = (7 - (totalDias % 7)) % 7; // Calcular espacios vacíos al final
     for (let i = 0; i < espaciosFinales; i++) {
         const espacioVacio = document.createElement("div");
-        espacioVacio.classList.add("card", "border-secondary", "bg-dark", "text-light");
+        espacioVacio.classList.add("card", "border-secondary", "bg-dark", "text-info");
         espacioVacio.innerHTML = `
             <div class="card-body d-flex align-items-center justify-content-center">
                 <h5 class="card-title text-center"><i class="bi bi-circle-fill text-info"></i></h5>
@@ -78,13 +83,54 @@ function generarCalendario2() {
         `;
         contenedorCalendario.appendChild(espacioVacio);
     }
+
+    // Hacer la llamada AJAX para obtener los datos de las citas
+    $.ajax({
+        url: "query/query_citas.php", // Archivo PHP que obtiene los datos
+        method: "GET",
+        dataType: "json",
+        success: function (data) {
+            // Mostrar los datos en las cards
+
+            console.log(data);
+            // Recorrer los datos y actualizar las cards
+            for (const fecha in data) {
+                const citas = data[fecha].total || 0;
+                const concretadas = data[fecha].concretadas || 0;
+                const noConcretadas = data[fecha].no_concretadas || 0;
+
+                // Actualizar los valores en las cards
+                $(`#citas-${fecha}`).text(citas);
+                $(`#concretadas-${fecha}`).text(concretadas);
+                $(`#no-concretadas-${fecha}`).text(noConcretadas);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error al obtener los datos de las citas:", error);
+        }
+    });
+
+    // Agregar evento de clic para dispositivos móviles
+    document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function () {
+        // Remover la clase 'active' de todas las cards
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        
+        // Agregar la clase 'active' a la card clickeada
+        this.classList.add('active');
+    });
+});
+
 }
 
-function generarCalendario() {
+function cambiarMes() {
+    let annio = parseInt(document.getElementById("annio").value);
+    let mes1 = parseInt(document.getElementById("mes").value);
+    console.log(annio, mes1);
     const contenedorCalendario = document.getElementById("contenedorCalendario");
     const fechaActual = new Date();
-    const año = fechaActual.getFullYear();
-    const mes = fechaActual.getMonth(); // Mes actual (0 = enero, 11 = diciembre)
+    const año = annio;
+    const mes = mes1; // Mes actual (0 = enero, 11 = diciembre)
 
     // Obtener el primer día del mes
     const primerDiaMes = new Date(año, mes, 1);
@@ -261,6 +307,8 @@ function abrirModalActividades(fecha) {
     // Mostrar el modal
     const modal = new bootstrap.Modal(document.getElementById('modalActividades'));
     modal.show();
+    document.getElementById("fechaActD").textContent = fecha;
+
 }
 
 // Función para generar el horario de 8:00 AM a 10:00 PM
