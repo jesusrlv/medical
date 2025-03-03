@@ -146,7 +146,7 @@ include('prcd/conn.php');
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="generarCalendario();">
     
 <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> -->
   <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -294,7 +294,7 @@ include('prcd/conn.php');
 <div class="modal fade" id="modalActividades" tabindex="-1" aria-labelledby="modalActividadesLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-dark text-info">
                 <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día (<span id="fechaActD"></span>)</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -305,7 +305,7 @@ include('prcd/conn.php');
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-dark text-info" data-bs-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

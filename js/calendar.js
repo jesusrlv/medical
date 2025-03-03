@@ -61,7 +61,7 @@ function generarCalendario() {
                 <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: <span id="concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: <span id="no-concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small">
-                    <a href="#" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
+                    <a href="javascript:void(0);" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
     <i class="bi bi-journal-check"></i> Ver
 </a>
                 </p>
@@ -189,7 +189,7 @@ function cambiarMes() {
                 <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: <span id="concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: <span id="no-concretadas-${fechaFormateada}">0</span></p>
                 <p class="card-text small">
-                    <a href="#" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
+                    <a href="javascript:void(0);" style="text-decoration: none" onclick="abrirModalActividades('${fechaFormateada}')">
     <i class="bi bi-journal-check"></i> Ver
 </a>
                 </p>
@@ -252,7 +252,7 @@ function cambiarMes() {
 }
 
 // Llamar a la función para generar el calendario
-generarCalendario();
+// generarCalendario();
 
 // Función para abrir el modal y cargar las actividades
 function abrirModalActividades(fecha) {
@@ -276,8 +276,9 @@ function abrirModalActividades(fecha) {
 
             // Recorrer el horario y agregar las actividades
             horario.forEach(hora => {
-                const actividad = data.find(act => act.hora === hora); // Buscar actividad en esta hora
-
+                const actividad = data.find(act => parseInt(act.hora) == parseInt(hora)); // Normalizar formato de la hora
+                console.log("Actividad en", hora, ":", actividad);
+            
                 // Crear el elemento de la actividad
                 const item = document.createElement("div");
                 item.classList.add("list-group-item");
@@ -286,12 +287,16 @@ function abrirModalActividades(fecha) {
                     // Si hay una actividad en esta hora
                     item.classList.add(actividad.concretada ? "actividad-concretada" : "actividad-no-concretada");
                     item.innerHTML = `
-                        <strong>${hora}</strong>: ${actividad.descripcion}
+                        <strong>
+                        <span class="badge bg-dark text-info">${hora}</span>
+                        </strong> | ${actividad.descripcion}
                     `;
                 } else {
                     // Si no hay actividad en esta hora
                     item.innerHTML = `
-                        <strong>${hora}</strong>: Sin actividades programadas.
+                         <strong>
+                        <span class="badge bg-dark text-info">${hora}</span>
+                        </strong> | Sin actividades programadas.
                     `;
                 }
 
@@ -311,14 +316,15 @@ function abrirModalActividades(fecha) {
 
 }
 
-// Función para generar el horario de 8:00 AM a 10:00 PM
-function generarHorario(horaInicio, horaFin) {
-    const horario = [];
-    for (let hora = horaInicio; hora <= horaFin; hora++) {
-        horario.push(`${hora < 10 ? '0' + hora : hora}:00`); // Formato HH:00
+function generarHorario(inicio, fin) {
+    let horario = [];
+    for (let i = inicio; i <= fin; i++) {
+        horario.push(i); // Solo números enteros
     }
     return horario;
 }
+
+
 
 // Ejemplo de cómo abrir el modal al hacer clic en un día
 // document.querySelectorAll('.card').forEach(card => {

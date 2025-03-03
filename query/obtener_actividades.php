@@ -10,9 +10,9 @@ if ($conn->connect_error) {
 $fecha = $_GET['fecha'];
 
 // Consulta para obtener las actividades del día
+// $sql = "SELECT CAST(hora AS UNSIGNED) AS hora, observaciones, estatus FROM citas WHERE fecha = '$fecha' ORDER BY hora";
 $sql = "SELECT hora, observaciones, estatus FROM citas WHERE fecha = '$fecha' ORDER BY hora";
 $result = $conn->query($sql);
-
 // Crear un arreglo para almacenar las actividades
 $actividades = [];
 
