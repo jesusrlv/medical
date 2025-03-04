@@ -337,5 +337,17 @@ function agregarAgenda(hora){
     document.getElementById("fechaNuevaActD").innerText = fecha;
     document.getElementById("horaNuevaActD").innerText = hora;
 
+    queryPacientesSelect();
 
+}
+
+function queryPacientesSelect(){
+    $.ajax({
+        url: "query/query_pacientes.php", // Archivo PHP que obtiene los datos
+        method: "POST", //
+        dataType: "HTML", //
+        success: function (data) {
+            $("#pacientesSelect").html(data);
+        }
+    });
 }

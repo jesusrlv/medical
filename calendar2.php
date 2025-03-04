@@ -296,7 +296,7 @@ include('prcd/conn.php');
         <div class="modal-content">
             <div class="modal-header bg-dark text-info">
                 <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día (<span id="fechaActD"></span>)</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Lista de actividades -->
@@ -316,18 +316,15 @@ include('prcd/conn.php');
         <div class="modal-content">
             <div class="modal-header bg-dark text-info">
                 <h5 class="modal-title" id="modalActividadesLabel">Agregar nueva actividad (<span id="fechaNuevaActD"></span> | <span id="horaNuevaActD"></span>:00hs)</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <h3 class="mt-2 mb-4">Datos de la cita</h3>
               <label for="exampleFormControlTextarea1" class="form-label">Seleccionar al paciente previamente registrado</label>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-check"></i></span>
-                <select class="form-select" aria-label="Default select example" id="paciente">
-                  <option selected>Selecciona el paciente ...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-select" aria-label="Default select example" id="pacientesSelect">
+                  
                 </select>
               </div>
               
