@@ -296,7 +296,11 @@ function abrirModalActividades(fecha) {
                     item.innerHTML = `
                          <strong>
                         <span class="badge bg-dark text-info">${hora}</span>
-                        </strong> | Sin actividades programadas.
+                        </strong> 
+                        | Sin actividades programadas.
+                        <a href="javascript:void(0);" onclick="agregarAgenda(${hora})">
+                        <span class="badge rounded-pill bg-primary text-light">Agregar Agenda</span>
+                        </a>
                     `;
                 }
 
@@ -324,12 +328,14 @@ function generarHorario(inicio, fin) {
     return horario;
 }
 
+function agregarAgenda(hora){
+    let fecha = document.getElementById("fechaActD").textContent;
+    $("#modalActividades").modal("hide");
+
+    $("#nuevaActividad").modal("show");
+
+    document.getElementById("fechaNuevaActD").innerText = fecha;
+    document.getElementById("horaNuevaActD").innerText = hora;
 
 
-// Ejemplo de cómo abrir el modal al hacer clic en un día
-// document.querySelectorAll('.card').forEach(card => {
-//     card.addEventListener('click', function () {
-//         const fecha = this.querySelector('h5').textContent; // Obtener la fecha de la card
-//         abrirModalActividades(fecha); // Abrir el modal con las actividades del día
-//     });
-// });
+}
