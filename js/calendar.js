@@ -294,6 +294,9 @@ function abrirModalActividades(fecha) {
                         <strong>
                         <span class="badge bg-dark text-info">${hora}</span>
                         </strong> | ${actividad.paciente} | ${actividad.descripcion}
+                        <a href="javascript:void(0);" onclick="cambiarEstatus(${actividad.id}, ${actividad.concretada ? 0 : 1})">
+                        <span class="badge rounded-pill bg-warning text-dark">Cambiar estatus</span>
+                        </a>
                     `;
                 } else {
                     // Si no hay actividad en esta hora
@@ -416,4 +419,48 @@ function guardarAgenda(){
 
         }
     });
+}
+
+function cambiarEstatus(id, estatus){
+    let confirmacion = confirm("¿Está seguro de cambiar el estatus de la cita?");
+    if(confirmacion){
+        $.ajax({
+            url: "prcd/prcd_cambiar_estatus_cita.php", // Archivo PHP que cambia el estatus de la cita
+            method: "POST", //
+            data: { 
+                id: id,
+                estatus: estatus
+             }, //
+            dataType: "JSON", //
+            success: function (data) {
+                let datos = JSON.parse(JSON.stringify(data));
+                let success = datos.success;
+
+                if(success == 1){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Estatus cambiado correctamente',
+                        confirmButtonColor: '#3085d6',
+                        footer: 'MediDent App',
+                    }).then((result) => {
+                        if(result.isConfirmed){
+                            $("#modalActividades").modal("hide");
+                            abrirModalActividades(document.getElementById("fechaActD").textContent);
+                            cambiarMes();
+                        }
+                    });
+                }
+                else{
+                    console.log(datos.error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al cambiar el estatus de la cita',
+                        confirmButtonColor: '#3085d6',
+                        footer: 'MediDent App',
+                    });
+                }
+
+            }
+        });
+    }
 }

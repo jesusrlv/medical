@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-03-2025 a las 23:26:39
+-- Tiempo de generación: 06-03-2025 a las 23:24:52
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.28
 
@@ -54,7 +54,12 @@ INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `obser
 (10, '2021-12-06', 50500, 1, 1, 'NA', 0),
 (11, '2025-02-26', 22, 2, 1, 'na 11', 0),
 (12, '2025-02-26', 11, 2, 1, 'x', 1),
-(13, '2025-02-26', 10, 1, 1, 'q', 1);
+(13, '2025-02-26', 10, 1, 1, 'q', 1),
+(14, '2025-03-06', 8, 1, 1, 'Dolor remitido', 1),
+(15, '2025-03-06', 9, 2, 1, 'dolor reportado', 1),
+(16, '2025-03-06', 17, 3, 1, 's', 1),
+(17, '2025-03-06', 10, 1, 1, 'dos', 1),
+(18, '2025-02-26', 8, 2, 1, 'tres', 0);
 
 -- --------------------------------------------------------
 
@@ -83,6 +88,7 @@ INSERT INTO `diagnostico` (`id`, `nombre`, `categoria`) VALUES
 
 CREATE TABLE `paciente` (
   `id` int(11) NOT NULL,
+  `apellido` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `direccion` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `telefono` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -101,10 +107,10 @@ CREATE TABLE `paciente` (
 -- Volcado de datos para la tabla `paciente`
 --
 
-INSERT INTO `paciente` (`id`, `nombre`, `direccion`, `telefono`, `edad`, `peso`, `sexo`, `alergias`, `estatura`, `tipo_sangre`, `email`, `nombre_emergencia`, `telefono_emergencia`) VALUES
-(1, 'Rodolfo', 'El salero', '9999999', 40, 100, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
-(2, 'Jesus', 'El salero', '9999999', 40, 102, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
-(3, 'Jesus', 'El salero', '9999999', 9, 9, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '999999997');
+INSERT INTO `paciente` (`id`, `apellido`, `nombre`, `direccion`, `telefono`, `edad`, `peso`, `sexo`, `alergias`, `estatura`, `tipo_sangre`, `email`, `nombre_emergencia`, `telefono_emergencia`) VALUES
+(1, 'Leaños', 'Rodolfo', 'El salero', '9999999', 40, 100, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
+(2, 'Leaños Villegas', 'Jesus', 'El salero', '9999999', 40, 102, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
+(3, 'LeañosVillegas', 'Jesus', 'El salero', '9999999', 9, 9, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '999999997');
 
 -- --------------------------------------------------------
 
@@ -162,7 +168,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `diagnostico`

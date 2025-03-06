@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 $fecha = $_GET['fecha'];
 
 // Consulta para obtener las actividades del día
-$sql = "SELECT hora, observaciones, estatus, id_paciente FROM citas WHERE fecha = '$fecha' ORDER BY hora";
+$sql = "SELECT id, hora, observaciones, estatus, id_paciente FROM citas WHERE fecha = '$fecha' ORDER BY hora";
 $result = $conn->query($sql);
 // Crear un arreglo para almacenar las actividades
 $actividades = [];
@@ -24,6 +24,7 @@ if ($result->num_rows > 0) {
         $row_paciente = $result_paciente->fetch_assoc();
         $nombre_paciente = $row_paciente['apellido']. ", ". $row_paciente['nombre'];
         $actividades[] = [
+            'id' => $row['id'],
             'hora' => $row['hora'],
             'descripcion' => $row['observaciones'],
             'concretada' => (bool)$row['estatus'],
