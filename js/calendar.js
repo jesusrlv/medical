@@ -14,6 +14,10 @@ function generarCalendario() {
     // Limpiar el contenedor del calendario
     contenedorCalendario.innerHTML = "";
 
+    // Agregar fecha a inputs
+    document.getElementById("annio").value = año;
+    document.getElementById("mes").value = mes;
+
     // Crear la fila de encabezados (días de la semana)
     const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     diasSemana.forEach(dia => {
@@ -289,7 +293,7 @@ function abrirModalActividades(fecha) {
                     item.innerHTML = `
                         <strong>
                         <span class="badge bg-dark text-info">${hora}</span>
-                        </strong> | ${actividad.descripcion}
+                        </strong> | ${actividad.paciente} | ${actividad.descripcion}
                     `;
                 } else {
                     // Si no hay actividad en esta hora
@@ -338,6 +342,7 @@ function agregarAgenda(hora){
     document.getElementById("horaNuevaActD").innerText = hora;
 
     queryPacientesSelect();
+    queryDiagnosticoSelect();
 
 }
 
@@ -348,6 +353,67 @@ function queryPacientesSelect(){
         dataType: "HTML", //
         success: function (data) {
             $("#pacientesSelect").html(data);
+        }
+    });
+}
+
+function queryDiagnosticoSelect(){
+    $.ajax({
+        url: "query/query_diagnostico.php", // Archivo PHP que obtiene los datos
+        method: "POST", //
+        dataType: "HTML", //
+        success: function (data) {
+            $("#diagnosticoSelect").html(data);
+        }
+    });
+}
+
+function guardarAgenda(){
+    let fecha = document.getElementById("fechaNuevaActD").innerText;
+    let hora = document.getElementById("horaNuevaActD").innerText;
+    let paciente = document.getElementById("pacientesSelect").value;
+    let diagnostico = document.getElementById("diagnosticoSelect").value;
+    let observaciones = document.getElementById("observaciones").value
+
+    $.ajax({
+        url: "prcd/prcd_agregar_cita.php", // Archivo PHP que guarda la agenda
+        method: "POST", //
+        data: { 
+            fecha: fecha, 
+            hora: hora, 
+            paciente: paciente, 
+            diagnostico: diagnostico,
+            observaciones: observaciones
+        }, //
+        dataType: "JSON", //
+        success: function (data) {
+            let datos = JSON.parse(JSON.stringify(data));
+            let success = datos.success;
+
+            if(success == 1){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cita agendada correctamente',
+                    confirmButtonColor: '#3085d6',
+                    footer: 'MediDent App',
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        $("#nuevaActividad").modal("hide");
+                        abrirModalActividades(fecha);
+                        cambiarMes();
+                    }
+                });
+            }
+            else{
+                console.log(datos.error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al agendar la cita',
+                    confirmButtonColor: '#3085d6',
+                    footer: 'MediDent App',
+                });
+            }
+
         }
     });
 }

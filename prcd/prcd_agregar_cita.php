@@ -2,12 +2,12 @@
 
 include('conn.php');
 
-$fecha = $_POST['fecha_cita'];
-$hora = $_POST['hora_cita'];
-$paciente = $_POST['paciente_cita'];
-$diagnostico = $_POST['diagnostico_cita'];
-$observaciones = $_POST['observaciones_cita'];
-$estatus = 1;
+$fecha = $_POST['fecha'];
+$hora = $_POST['hora'];
+$paciente = $_POST['paciente'];
+$diagnostico = $_POST['diagnostico'];
+$observaciones = $_POST['observaciones'];
+$estatus = 0;
 
 $sql="INSERT INTO citas(
 fecha,

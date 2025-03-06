@@ -48,6 +48,7 @@ include('prcd/conn.php');
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
 
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       .bd-placeholder-img {
@@ -315,11 +316,12 @@ include('prcd/conn.php');
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-dark text-info">
-                <h5 class="modal-title" id="modalActividadesLabel">Agregar nueva actividad (<span id="fechaNuevaActD"></span> | <span id="horaNuevaActD"></span>:00hs)</h5>
+                <h5 class="modal-title" id="modalActividadesLabel">Agregar nueva cita (<span id="fechaNuevaActD"></span> | <span id="horaNuevaActD"></span>:00hs)</h5>
                 <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <h3 class="mt-2 mb-4">Datos de la cita</h3>
+
               <label for="exampleFormControlTextarea1" class="form-label">Seleccionar al paciente previamente registrado</label>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-check"></i></span>
@@ -331,7 +333,9 @@ include('prcd/conn.php');
               <label for="exampleFormControlTextarea1" class="form-label">Diagnóstivo previo del paciente</label>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard"></i></span>
-                <input type="text" class="form-control" placeholder="Diagnóstico" aria-label="Diagnóstico" aria-describedby="basic-addon1" id="diagnostico">
+                <select class="form-select" aria-label="Default select example" id="diagnosticoSelect">
+                  
+                </select>
               </div>
 
               <label for="exampleFormControlTextarea1" class="form-label">Observaciones</label>
@@ -342,7 +346,7 @@ include('prcd/conn.php');
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark text-info" onclick="agregarAgenda()"><i class="bi bi-plus-circle-dotted"></i> Agregar actividad</button>
+                <button type="button" class="btn btn-dark text-info" onclick="guardarAgenda()"><i class="bi bi-plus-circle-dotted"></i> Agregar actividad</button>
                 <button type="button" class="btn btn-dark text-info" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Cerrar</button>
             </div>
         </div>

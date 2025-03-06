@@ -10,8 +10,7 @@ if ($conn->connect_error) {
 $fecha = $_GET['fecha'];
 
 // Consulta para obtener las actividades del día
-// $sql = "SELECT CAST(hora AS UNSIGNED) AS hora, observaciones, estatus FROM citas WHERE fecha = '$fecha' ORDER BY hora";
-$sql = "SELECT hora, observaciones, estatus FROM citas WHERE fecha = '$fecha' ORDER BY hora";
+$sql = "SELECT hora, observaciones, estatus, id_paciente FROM citas WHERE fecha = '$fecha' ORDER BY hora";
 $result = $conn->query($sql);
 // Crear un arreglo para almacenar las actividades
 $actividades = [];
@@ -19,10 +18,16 @@ $actividades = [];
 if ($result->num_rows > 0) {
     // Recorrer los resultados y almacenarlos en el arreglo
     while ($row = $result->fetch_assoc()) {
+        $paciente = $row['id_paciente'];
+        $sql_paciente = "SELECT apellido, nombre FROM paciente WHERE id = '$paciente'";
+        $result_paciente = $conn->query($sql_paciente);
+        $row_paciente = $result_paciente->fetch_assoc();
+        $nombre_paciente = $row_paciente['apellido']. ", ". $row_paciente['nombre'];
         $actividades[] = [
             'hora' => $row['hora'],
             'descripcion' => $row['observaciones'],
-            'concretada' => (bool)$row['estatus']
+            'concretada' => (bool)$row['estatus'],
+            'paciente' => $nombre_paciente
         ];
     }
 }
