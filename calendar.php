@@ -35,7 +35,7 @@ include('prcd/conn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dental | Inicio</title>
+    <title>Dental | Agenda</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
@@ -46,6 +46,9 @@ include('prcd/conn.php');
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       .bd-placeholder-img {
@@ -61,13 +64,90 @@ include('prcd/conn.php');
           font-size: 3.5rem;
         }
       }
+      #contenedorCalendario {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 1px;
+      }
+
+    .card {
+        min-height: 200px; /* Ajusta la altura según sea necesario */
+
+    }
+    /* Estilos para los encabezados de los días de la semana */
+    .card-header {
+        background-color: #343a40; /* Fondo oscuro */
+        color: white; /* Texto blanco */
+        font-weight: bold; /* Texto en negrita */
+        text-align: center; /* Centrar texto */
+        padding: 10px; /* Espaciado interno */
+    }
+    /* Estilos para las cards vacías */
+    .card.border-secondary {
+        border-color: #6c757d !important; /* Borde gris */
+    }
+
+    .card.bg-secondary {
+        background-color: #6c757d !important; /* Fondo gris */
+    }
+
+    .card.bg-secondary .card-title {
+        opacity: 0.5; /* Texto semi-transparente */
+    }
+
+    /* Estilos para el header del calendario */
+    .header-day {
+       min-height: 100px; /* Reducir a la mitad la altura */
+    }
+
+    .header-day .card-body {
+        padding: 5px; /* Reducir el espaciado interno */
+    }
+
+    .header-day h5 {
+        font-size: 14px; /* Reducir el tamaño del texto */
+        font-weight: bold; /* Texto en negrita */
+        margin: 0; /* Eliminar margen */
+    }
+
+    /* Efecto hover para dispositivos de escritorio */
+    .cardActivo:hover {
+        transform: scale(1.05); /* Escalar la card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+        transition: transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    }
+
+    /* Efecto para dispositivos móviles (clase activa) */
+    .cardActivo.active {
+        transform: scale(1.05); /* Escalar la card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+        transition: transform 0.2s, box-shadow 0.2s; /* Transición suave */
+    }
+    /* Estilo para actividades concretadas */
+.actividad-concretada {
+    background-color: rgba(0, 123, 255, 0.1); /* Azul leve */
+    border-left: 4px solid #007bff; /* Borde azul */
+}
+
+/* Estilo para actividades no concretadas */
+.actividad-no-concretada {
+    background-color: rgba(255, 0, 0, 0.1); /* Rojo leve */
+    border-left: 4px solid #dc3545; /* Borde rojo */
+}
+
+/* Estilo general para cada actividad */
+.list-group-item {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
     </style>
 
     
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="generarCalendario();">
     
 <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> -->
   <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -95,10 +175,6 @@ include('prcd/conn.php');
 
 <main>
   <h1 class="visually-hidden">Dental | Inicio</h1>
-
-  
-
-  
 
   <header class="p-3 bg-dark text-white">
     <div class="container">
@@ -135,51 +211,44 @@ include('prcd/conn.php');
 <body>
     <div class="container">
 
-    <p class="h4 mt-5">
+    <p class="h4 mt-4">
         <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> Usuario.
       </p>
 
     <hr>
 
-      <p class="h4 mt-5 bg-info text-light p-4 rounded">
+      <p class="h4 mt-3 bg-info text-light p-4 rounded">
         <strong><i class="bi bi-list-columns-reverse"></i> Agenda</strong> 
       </p>
 
-      
-
-      <p>
-        <!-- <div class="input-group mb-3 w-25">
-          <input type="date" class="form-control" placeholder="Recipient's username" aria-label="dd/mm/aaaa" aria-describedby="button-addon2">
-          <button class="btn btn-primary" type="button" id="button-addon2"><i class="bi bi-search"></i> Buscar</button> -->
-        </div>
-      </p>
+      <p></p>
 
     </div>
 <main>
+
 <div class="container py-4">
 
 <div class="row">
   <div class="col-4">
-    <form action="calendar.php" method="POST">
-    <select class="form-select" aria-label="Default select example" name="mes" required>
+    <select class="form-select" aria-label="Default select example" id="mes" name="mes" required>
       <option selected>Mes</option>
-      <option value="1">Enero</option>
-      <option value="2">Febrero</option>
-      <option value="3">Marzo</option>
-      <option value="4">Abril</option>
-      <option value="5">Mayo</option>
-      <option value="6">Junio</option>
-      <option value="7">Julio</option>
-      <option value="8">Agosto</option>
-      <option value="9">Septiempre</option>
-      <option value="10">Octubre</option>
-      <option value="11">Noviembre</option>
-      <option value="12">Diciembre</option>
+      <option value="0">Enero</option>
+      <option value="1">Febrero</option>
+      <option value="2">Marzo</option>
+      <option value="3">Abril</option>
+      <option value="4">Mayo</option>
+      <option value="5">Junio</option>
+      <option value="6">Julio</option>
+      <option value="7">Agosto</option>
+      <option value="8">Septiempre</option>
+      <option value="9">Octubre</option>
+      <option value="10">Noviembre</option>
+      <option value="11">Diciembre</option>
     </select>
    
   </div>
   <div class="col-4">
-    <select class="form-select" aria-label="Default select example" name="annio" required>
+    <select class="form-select" aria-label="Default select example" id="annio" name="annio" required>
       <option selected required>Año</option>
       <option value="2021">2021</option>
       <option value="2022">2022</option>
@@ -193,577 +262,93 @@ include('prcd/conn.php');
     </select>
   </div>
   <div class="col-4">
-    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Buscar</button>
-    </form>
+    <button type="submit" class="btn btn-primary" onclick="cambiarMes()"><i class="bi bi-search"></i> Buscar</button>
   </div>
 </div>
 <hr>
 
 <!-- inicia calendar -->
-
-<?php
-
-date_default_timezone_set('America/Mexico_City');
-                  setlocale(LC_TIME, 'es_MX.UTF-8');
-                  // setlocale(LC_TIME, 'es_ES');
-                  $fecha_sistema = strftime("%Y-%m-%d");
-
-// $fecha = '2017-04-26'; //Fecha de la que queramos saber el número de días que tiene el mes.
-
-                // echo date( 't', strtotime( $fecha_sistema ) );
-                $dia=date( 't', strtotime( $fecha_sistema ) ); //número de días en el mes
-                
-                if(isset($_REQUEST['mes'])&&isset($_REQUEST['annio'])){
-                  $mtotal = $_REQUEST['mes'];
-                  $annio = $_REQUEST['annio'];
-                  
-                }
-                else{
-                  $mtotal=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
-                  $annio = date('Y', strtotime( $fecha_sistema ));
-                }
-
-                // $mes=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
-                // $mtotal=date( 'm', strtotime( $fecha_sistema ) ); //muestra el número de mes
-                // $mtotal = $mes + ($m);
-                // $mes=date('F', strftime($fecha_sistema)); //muestra el mes actual
-                // $fecha_actual=strftime("%B");
-                // echo '<a href="calendar.php?m=-1&ma='.$mtotal.'"><span class="badge rounded-pill bg-secondary text-light"> << </span></a> <strong>MES</strong>: ';
-                echo '<strong>MES</strong>: ';
-                
-                if($mtotal==1){
-                  echo 'Enero';
-                }
-                elseif($mtotal==2){
-                  echo 'Febrero';
-                }
-                elseif($mtotal==3){
-                  echo 'Marzo';
-                }
-                elseif($mtotal==4){
-                  echo 'Abril';
-                }
-                elseif($mtotal==5){
-                  echo 'Mayo';
-                }
-                elseif($mtotal==6){
-                  echo 'Junio';
-                }
-                elseif($mtotal==7){
-                  echo 'Julio';
-                }
-                elseif($mtotal==8){
-                  echo 'Agosto';
-                }
-                elseif($mtotal==9){
-                  echo 'Septiembre';
-                }
-                elseif($mtotal==10){
-                  echo 'Octubre';
-                }
-                elseif($mtotal==11){
-                  echo 'Noviembre';
-                }
-                elseif($mtotal==12){
-                  echo 'Diciembre';
-                }
-                // echo ' <a href="calendar.php?m=1"><span class="badge rounded-pill bg-secondary text-light"> >> </span></a>';
-                echo ' | <strong>Año: </strong>'.$annio;
-                echo '<hr>';
-                
-                
-                
-                // .$fecha_actual.'<hr>'; 
-
-        require('prcd/contar_calentario.php');
-          // $consulta2 ="SELECT * FROM citas WHERE fecha = '$fecha_sistema' ORDER BY fecha DESC, hora DESC LIMIT 10";
-          // $consulta2 ="SELECT * FROM citas ORDER BY fecha DESC, hora DESC LIMIT 10";
-          // $resultado_consulta2 = $conn->query($consulta2);
-          // $n=0;
-          // while ($dia = 30){
-
-            //echo para calcular la fecha correctamente    
-            echo $fecha_calcular1;
-            echo $row_cnt1;
-            
-              echo ' 
-            
-            <div class="card-group">
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 1</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día: '.$dia1.'</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: '.$row_cnt1.'</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: '.$row_cnt1_si.'</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: '.$row_cnt1_no.'</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 2</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día: '.$dia2.'</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas: '.$row_cnt2.'</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas: '.$row_cnt2_si.'</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas: '.$row_cnt2_no.'</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 3</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 4</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 5</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 6</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 7</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              
-            </div>
-            
-            <div class="card-group">
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 8</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 9</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 10</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 11</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 12</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 13</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 14</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              
-              
-            </div>
-            
-            <div class="card-group">
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 15</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 16</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 17</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 18</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 19</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 20</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 21</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="card-group">
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 22</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 23</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 24</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 25</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 26</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 27</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 28</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-            
-            </div>
-
-            <div class="card-group">
-              
-            <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 29</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 30</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-              <div class="card border-info bg-dark text-light">
-                <div class="card-body">
-                  <h5 class="card-title"><i class="bi bi-circle-fill text-info"></i> 31</h5>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-calendar-day-fill"></i> Día:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-journal-bookmark-fill"></i> Citas:</p>
-                  <hr>
-                  <p class="card-text small"><i class="bi bi-circle-fill text-primary"></i> Concretadas:</p>
-                  <p class="card-text small" style="margin-top:-18px"><i class="bi bi-circle-fill text-danger"></i> No Concretadas:</p>
-                  <p class="card-text small"><a href="" style="text-decoration: none"><i class="bi bi-plus-circle"></i> Agregar</a>
-                </div>
-              </div>
-                <div class="card border-light">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                 
-                    <p class="card-text"></p>
-                  </div>
-                </div>
-                <div class="card border-light">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"></p>
-                  </div>
-                </div>
-                <div class="card border-light">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"></p>
-                  </div>
-                </div>
-                <div class="card border-light">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"></p>
-                  </div>
-                </div>
-            </div>
-
-
-              ';
-          // }
-
-?>
-
-
+    <div id="contenedorCalendario" class="card-group"></div>
 <!-- termina calendar -->
 
     </div>
     </main>
 </body>
 
-<div class="b-example-divider"></div>
 
 <div class="container">
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Inicio</a></li>
-        <li><a href="citas.php" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
-        <!-- <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
-        <li><a href="pacientes.php" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
-        <li><a href="catalogo.php" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
-    </ul>
-    <p class="text-center text-muted">REDDeploy &copy; 2021</p>
+    <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
 </div>
 
 
     <script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/calendar.js"></script>
 
       
   </body>
 </html>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+<div class="modal fade" id="modalActividades" tabindex="-1" aria-labelledby="modalActividadesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-info">
+                <h5 class="modal-title" id="modalActividadesLabel">Actividades del Día (<span id="fechaActD"></span>)</h5>
+                <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Lista de actividades -->
+                <div id="lista-actividades" class="list-group" style="max-height: 400px; overflow-y: auto;">
+                    <!-- Las actividades se insertarán aquí dinámicamente -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark text-info" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Cerrar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+<!-- Modal nueva actividad-->
+<div class="modal fade" id="nuevaActividad" tabindex="-1" aria-labelledby="modalActividadesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-dark text-info">
+                <h5 class="modal-title" id="modalActividadesLabel">Agregar nueva cita (<span id="fechaNuevaActD"></span> | <span id="horaNuevaActD"></span>:00hs)</h5>
+                <button type="button" class="btn-close bg-info" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h3 class="mt-2 mb-4">Datos de la cita</h3>
 
-<?php
+              <label for="exampleFormControlTextarea1" class="form-label">Seleccionar al paciente previamente registrado</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-check"></i></span>
+                <select class="form-select" aria-label="Default select example" id="pacientesSelect">
+                  
+                </select>
+              </div>
+              
+              <label for="exampleFormControlTextarea1" class="form-label">Diagnóstivo previo del paciente</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard"></i></span>
+                <select class="form-select" aria-label="Default select example" id="diagnosticoSelect">
+                  
+                </select>
+              </div>
 
-            function fecha($mes,$annio){
-              $fecha_sql=(dia);
-            }
+              <label for="exampleFormControlTextarea1" class="form-label">Observaciones</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard"></i></span>
+                <textarea class="form-control" id="observaciones"></textarea>
+              </div>
+            </div>
 
-?>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark text-info" onclick="guardarAgenda()"><i class="bi bi-plus-circle-dotted"></i> Agregar actividad</button>
+                <button type="button" class="btn btn-dark text-info" data-bs-dismiss="modal"><i class="bi bi-x-circle"></i> Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
