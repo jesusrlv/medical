@@ -149,7 +149,7 @@ include('prcd/conn.php');
       <div class="container-fluid py-5 text-light">
         <h1 class="display-5 fw-bold"><i class="bi bi-list-columns-reverse"></i> Agendar citas médicas</h1>
         <p class="col-md-8 fs-4">Agregar citas para los pacientes registrados en el sistema.</p>
-        <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#agendarCitas"><i class="bi bi-calendar2-plus"></i> Agregar cita</button>
+        <!-- <button class="btn btn-outline-info btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#agendarCitas"><i class="bi bi-calendar2-plus"></i> Agregar cita</button> -->
         <button class="btn btn-outline-info btn-lg" type="button" onclick="dateMini()"><i class="bi bi-calendar-week-fill"></i> Ver citas</button>
         <!-- <a href="citas.php" class="btn btn-primary btn-lg" type="button" ><i class="bi bi-calendar-week-fill"></i> Ver citas</a> -->
       </div>
@@ -285,17 +285,21 @@ include('prcd/conn.php');
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form action="prcd/prcd_agregar_paciente.php" method="POST">
+      <!-- <form action="prcd/prcd_agregar_paciente.php" method="POST"> -->
+      <form id="agregarPaciente" method="POST">
 
       <div class="modal-body">
 
       <div class="alert" style="background-color:#A7B6DB; color:#183FDB;" role="alert">
       <span class="h4"><i class="bi bi-exclamation-circle-fill"></i> Datos del paciente</span>
         <hr>
-<!-- </div> -->
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Nombre</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar nombre" name="nombre_paciente" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-person-bounding-box"></i> Apellido</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Agregar apellido" name="apellido_paciente" required>
         </div>
 
         <div class="row">
