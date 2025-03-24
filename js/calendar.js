@@ -295,10 +295,8 @@ function abrirModalActividades(fecha) {
                         <span class="badge bg-dark text-info">${hora}</span>
                         </strong> | ${actividad.paciente} | ${actividad.descripcion}
                         <a href="javascript:void(0);" onclick="cambiarEstatus(${actividad.id}, ${actividad.concretada ? 0 : 1})">
-                        <span class="badge rounded-pill bg-warning text-dark">Cambiar estatus</span>
-                        </a>
-                        |
-                        <a href="javascript:void(0);" onclick="eliminarAgenda(${actividad.id})">
+                            <span class="badge rounded-pill bg-warning text-dark">Cambiar estatus</span>
+                        </a> | <a href="javascript:void(0);" onclick="eliminarAgenda(${actividad.id})">
                         <span class="badge rounded-pill bg-danger text-light">Eliminar Agenda</span>
                         </a>
                     `;

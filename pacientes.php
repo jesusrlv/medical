@@ -18,6 +18,10 @@
 <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script src="js/pacientes.js"></script>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -125,37 +129,15 @@
   <thead class="table-dark">
   <tr class="text-center">
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
+      <th scope="col">Domicilio</th>
+      <th scope="col">Teléfono</th>
       <th scope="col">Edad</th>
       <th scope="col">Sexo</th>
-      <th scope="col">Acciones</th>
-      <th scope="col">Expediente</th>
+      <th scope="col">Peso</th>
+      <th scope="col">Ver</th>
   </thead>
-  <tbody>
-  <tr class="text-center">
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
-    </tr>
-    <tr class="text-center">
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
-    </tr>
-    <tr class="text-center">
-    <th scope="row">2</th>
-      <td>Ana</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td><i class="bi bi-pencil-square"></i></td>
-      <td><a href="bucal.php"><i class="bi bi-card-heading"></i></a></td>
-    </tr>
+  <tbody id="pacientes2">
+  
   </tbody>
 </table>
 
@@ -164,27 +146,20 @@
     </main>
 </body>
 
-<div class="b-example-divider"></div>
-
-<div class="container">
+<div class="container border-top">
   <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li><a href="dashboard.php" class="nav-link px-2 text-secondary">Inicio</a></li>
-        <li><a href="citas.php" class="nav-link px-2 text-dark"><i class="bi bi-list-columns-reverse"></i> Agenda</a></li>
-        <!-- <li><a href="#" class="nav-link px-2 text-dark"><i class="bi bi-card-list"></i> Diagnóstico</a></li> -->
-        <li><a href="pacientes.php" class="nav-link px-2 text-dark"><i class="bi bi-person-bounding-box"></i> Pacientes</a></li>
-        <li><a href="catalogo.php" class="nav-link px-2 text-dark"><i class="bi bi-person-lines-fill"></i> Catálogo</a></li>
-    </ul>
-    <p class="text-center text-muted">REDDeploy &copy; 2021</p>
+    <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
+
 </div>
 
 
-    <script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
 
-      
-  </body>
+
+</body>
 </html>
+
+<script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
 
 

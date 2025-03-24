@@ -276,11 +276,12 @@ include('prcd/conn.php');
 </body>
 
 
-<div class="container">
+<div class="container border-top">
   <footer class="py-3 my-4">
     <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
+
 </div>
 
 
