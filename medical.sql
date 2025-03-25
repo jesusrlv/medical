@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-03-2025 a las 07:49:44
+-- Tiempo de generación: 25-03-2025 a las 19:12:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -113,7 +113,14 @@ CREATE TABLE `paciente` (
 INSERT INTO `paciente` (`id`, `apellido`, `nombre`, `direccion`, `telefono`, `edad`, `peso`, `sexo`, `alergias`, `estatura`, `tipo_sangre`, `email`, `nombre_emergencia`, `telefono_emergencia`) VALUES
 (1, 'Leaños', 'Rodolfo', 'El salero', '9999999', 40, 100, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
 (2, 'Leaños Villegas', 'Jesus', 'El salero', '9999999', 40, 102, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '9999999'),
-(3, 'LeañosVillegas', 'Jesus', 'El salero', '9999999', 9, 9, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '999999997');
+(3, 'LeañosVillegas', 'Jesus', 'El salero', '9999999', 9, 9, 1, 'Ninguna', '2', 1, 'jesusrlv@gmail.com', 'Ninguno', '999999997'),
+(4, 's', 's', 's', 's', 2, 2, 1, '2', '2', 2, '3@d', '2', '2'),
+(5, 's', 's', 's', 's', 2, 2, 1, '2', '2', 2, '3@d', '2', '2'),
+(6, '3', '3', '3', '3', 3, 3, 1, '3', '3', 2, '3@d', '3', '3'),
+(7, '3', '3', '3', '3', 3, 3, 1, '3', '3', 2, '3@d', '3', '3'),
+(8, '4', '4', '4', '4', 4, 4, 2, '4', '4', 6, 'tt@jj', '4', '4'),
+(9, '5', '5', '5', '5', 5, 5, 1, '5', '5', 2, '4@g', '5', '5'),
+(10, '6', '6', '6', '6', 6, 6, 2, '66666666', '6', 8, '6@s', '6', '6');
 
 -- --------------------------------------------------------
 
@@ -127,6 +134,31 @@ CREATE TABLE `procedimientos` (
   `descripción` date NOT NULL,
   `id_ext` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tiposangre`
+--
+
+CREATE TABLE `tiposangre` (
+  `id` int(11) NOT NULL,
+  `tipoSangre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tiposangre`
+--
+
+INSERT INTO `tiposangre` (`id`, `tipoSangre`) VALUES
+(1, 'A Rh +'),
+(2, 'A Rh -'),
+(3, 'AB Rh +'),
+(4, 'AB Rh -'),
+(5, 'B Rh +'),
+(6, 'B Rh -'),
+(7, 'O Rh +'),
+(8, 'O Rh -');
 
 -- --------------------------------------------------------
 
@@ -177,6 +209,12 @@ ALTER TABLE `procedimientos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tiposangre`
+--
+ALTER TABLE `tiposangre`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usr`
 --
 ALTER TABLE `usr`
@@ -202,13 +240,19 @@ ALTER TABLE `diagnostico`
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `procedimientos`
 --
 ALTER TABLE `procedimientos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `tiposangre`
+--
+ALTER TABLE `tiposangre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usr`

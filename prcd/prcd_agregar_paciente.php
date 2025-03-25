@@ -17,20 +17,46 @@ $nombre_emergencia = $_POST['nombre_emergencia'];
 $telefono_emergencia = $_POST['telefono_emergencia'];
 
 
-$sql="INSERT INTO paciente(nombre,apellido,direccion,telefono,edad,peso,sexo,alergias,estatura,tipo_sangre,email,nombre_emergencia,telefono_emergencia) 
-VALUES('$nombre','$apellido','$direccion','$telefono','$edad','$peso','$sexo','$alergias','$estatura','$tipo_sangre','$email','$nombre_emergencia','$telefono_emergencia')";
+$sql="INSERT INTO paciente(
+    nombre,
+    apellido,
+    direccion,
+    telefono,
+    edad,
+    peso,
+    sexo,
+    alergias,
+    estatura,
+    tipo_sangre,
+    email,
+    nombre_emergencia,
+    telefono_emergencia) 
+VALUES(
+'$nombre',
+'$apellido',
+'$direccion',
+'$telefono',
+'$edad',
+'$peso',
+'$sexo',
+'$alergias',
+'$estatura',
+'$tipo_sangre',
+'$email',
+'$nombre_emergencia',
+'$telefono_emergencia')";
 $resultado= $conn->query($sql);
 // echo $resultado;
 if($resultado){
 
-    echo json_encode(array('
-        success' => 1
+    echo json_encode(array(
+        'success' => 1
     ));
 }
 else{
     $error = $conn->error;
-    echo json_encode(array('
-        success' => 0,
+    echo json_encode(array(
+        'success' => 0,
         'error' => $error
     ));
 

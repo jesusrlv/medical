@@ -32,6 +32,19 @@ function cargarAgendaMini() {
     });
 }
 
+function cargarTipoSangre() {
+    $.ajax({
+        url: "query/query_tipoSangre.php",
+        method: "POST",
+        dataType: "HTML",
+        success: function(data){
+            $("#tiposangre_paciente").html(data);
+        }
+    });
+}
+
+cargarTipoSangre();
+
 $(document).ready(function() {
     // Cuando se envíe el formulario
     $('#agregarPaciente').on('submit', function(event) {
@@ -51,7 +64,7 @@ $(document).ready(function() {
                 let datos = JSON.parse(JSON.stringify(data));
                 let success = datos.success;
     
-                if(success == 1){
+                if(success = 1){
                     Swal.fire({
                         icon: 'success',
                         title: 'Paciente agregado correctamente',
@@ -60,6 +73,7 @@ $(document).ready(function() {
                     }).then((result) => {
                         if(result.isConfirmed){
                             $("#exampleModalPaciente").modal("hide");
+                            document.getElementById('agregarPaciente').reset();
                         }
                     });
                 }

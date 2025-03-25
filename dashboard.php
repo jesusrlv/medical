@@ -41,11 +41,14 @@ include('prcd/conn.php');
     <link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
         <!-- Bootstrap core CSS -->
     <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script src="js/dashboard.js"></script>
@@ -360,14 +363,8 @@ include('prcd/conn.php');
           <div class="col"> 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label"><i class="bi bi-droplet-fill"></i> Tipo de sangre</label>
-                    <select class="form-select" aria-label="Default select example" name="tiposangre_paciente">
-                        <option selected>Seleccionar sexo del paciente</option>
-                        <option value="1">O +</option>
-                        <option value="2">O -</option>
-                        <option value="3">A +</option>
-                        <option value="4">A -</option>
-                        <option value="5">AB +</option>
-                        <option value="6">AB -</option>
+                    <select class="form-select" aria-label="Default select example" name="tiposangre_paciente" id="tiposangre_paciente">
+                        
                     </select>
             </div>
           </div>
