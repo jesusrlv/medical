@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 06-03-2025 a las 23:24:52
+-- Tiempo de generación: 25-03-2025 a las 07:49:44
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.28
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,7 +59,10 @@ INSERT INTO `citas` (`id`, `fecha`, `hora`, `id_paciente`, `diagnostico`, `obser
 (15, '2025-03-06', 9, 2, 1, 'dolor reportado', 1),
 (16, '2025-03-06', 17, 3, 1, 's', 1),
 (17, '2025-03-06', 10, 1, 1, 'dos', 1),
-(18, '2025-02-26', 8, 2, 1, 'tres', 0);
+(18, '2025-02-26', 8, 2, 1, 'tres', 0),
+(20, '2025-03-24', 8, 3, 1, 'x', 1),
+(21, '2025-03-24', 12, 3, 1, 'x', 1),
+(22, '2025-03-24', 9, 3, 1, 'x', 0);
 
 -- --------------------------------------------------------
 
@@ -115,6 +118,19 @@ INSERT INTO `paciente` (`id`, `apellido`, `nombre`, `direccion`, `telefono`, `ed
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `procedimientos`
+--
+
+CREATE TABLE `procedimientos` (
+  `id` int(11) NOT NULL,
+  `diagnostico` int(11) NOT NULL,
+  `descripción` date NOT NULL,
+  `id_ext` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usr`
 --
 
@@ -155,6 +171,12 @@ ALTER TABLE `paciente`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `procedimientos`
+--
+ALTER TABLE `procedimientos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usr`
 --
 ALTER TABLE `usr`
@@ -168,7 +190,7 @@ ALTER TABLE `usr`
 -- AUTO_INCREMENT de la tabla `citas`
 --
 ALTER TABLE `citas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `diagnostico`
@@ -181,6 +203,12 @@ ALTER TABLE `diagnostico`
 --
 ALTER TABLE `paciente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `procedimientos`
+--
+ALTER TABLE `procedimientos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usr`
