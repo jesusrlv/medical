@@ -11,16 +11,18 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
     
-<link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
-    <!-- Bootstrap core CSS -->
-<link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-<link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    <link rel="icon" type="image/png" href="css/assets/brand/dental.png" />
+        <!-- Bootstrap core CSS -->
+    <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/jumbotron/">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-<script src="js/pacientes.js"></script>
+    <script src="js/pacientes.js"></script>
 
     <style>
       .bd-placeholder-img {
