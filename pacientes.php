@@ -128,7 +128,7 @@
 <div class="container py-4">
 
 <table class="table">
-  <thead class="table-dark">
+  <thead class="table-dark text-info">
   <tr class="text-center">
       <th scope="col">#</th>
       <th scope="col">Domicilio</th>
