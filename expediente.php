@@ -50,6 +50,7 @@ include('prcd/conn.php');
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
       .bd-placeholder-img {
@@ -166,7 +167,7 @@ include('prcd/conn.php');
                     <strong><i class="bi bi-person-bounding-box"></i> Historial clínico</strong>
                   </div>
                   <div class="col-6 text-end">
-                    <button class="btn btn-primary btn-sm text-end"><i class="bi bi-clipboard-plus-fill"></i> Nuevo</button>
+                    <button class="btn btn-primary btn-sm text-end" data-bs-toggle="modal" data-bs-target="#agregarHistorial"><i class="bi bi-clipboard-plus-fill"></i> Nuevo</button>
                   </div>
                 </div>
 
@@ -179,6 +180,7 @@ include('prcd/conn.php');
                         <th scope="col">Fecha</th>
                         <th scope="col">Diagnóstico</th>
                         <th scope="col">Procedimiento(s)</th>
+                        <th scope="col">Acción</th>
                       </tr>
                     </thead>
                     <tbody id="tablaProcedimientos">
@@ -203,6 +205,39 @@ include('prcd/conn.php');
     <p class="text-center text-muted">REDDeploy &copy; 2025</p>
   </footer>
 </div>
+</div>
+
+<!-- Modal  agregar historial -->
+<div class="modal fade" id="agregarHistorial" tabindex="-1" aria-labelledby="agregarHistorialLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-info">
+        <h1 class="modal-title fs-5" id="agregarHistorialLabel"><i class="bi bi-journal-plus"></i> Agregar procedimiento</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard2-pulse"></i></span>
+            <select class="form-select" aria-label="Seleciona diagnóstico ..." id="diagnosticoExpediente">
+              
+            </select>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard2-pulse-fill"></i></span>
+          <!-- <input type="text" class="form-control" placeholder="Procedimiento" aria-label="Procedimiento" aria-describedby="basic-addon1" id="procedimientoExpediente"> -->
+          <textarea class="form-control" rows="4"
+          placeholder="Descripción del procedimiento..." id="procedimientoExpediente"></textarea>
+
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="agregarHistorial()"><i class="bi bi-floppy2-fill"></i> Guardar</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
