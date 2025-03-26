@@ -76,7 +76,7 @@ include('prcd/conn.php');
 <main>
   <h1 class="visually-hidden">Dental | Inicio</h1>
 
-  <input type="text" id="idPaciente" value="<?php echo $idPaciente ?>">
+  <input type="text" id="idPaciente" value="<?php echo $idPaciente ?>" hidden>
   
   <header class="p-3 bg-dark text-white">
     <div class="container">
@@ -161,80 +161,31 @@ include('prcd/conn.php');
           <div class="col-8">
             <div class="card">
               <div class="card-body">
-                <strong><i class="bi bi-person-bounding-box"></i> Historial clínico</strong>
+                <div class="row">
+                  <div class="col-6">
+                    <strong><i class="bi bi-person-bounding-box"></i> Historial clínico</strong>
+                  </div>
+                  <div class="col-6 text-end">
+                    <button class="btn btn-primary btn-sm text-end"><i class="bi bi-clipboard-plus-fill"></i> Nuevo</button>
+                  </div>
+                </div>
+
                 <hr>
-                <p>
-                <label for="inputState" class="form-label"><strong><i class="bi bi-clipboard-data"></i> Diagnóstico: </strong></label>
-                <textarea type="text" class="form-control" id="formGroupExampleInput" placeholder="Escriba DX..."></textarea> 
-                </p>
-                <p><strong><i class="bi bi-image"></i> Imágenes:</strong> 
-                <a href="#"><i class="bi bi-plus-circle"></i></a>
-                <!-- inicia galeria -->
-                <div class="row row-cols-auto">
-                  <div class="col-md-2">
-                    <div class="thumbnail rounded">
-                      <a href="#">
-                        <img src="assets/img_dental/dental_01.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
-                        <!-- <div class="caption">
-                          <p>Lorem ipsum...</p>
-                        </div> -->
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="thumbnail rounded">
-                      <a href="#">
-                        <img src="assets/img_dental/dental_02.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
-                        
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="thumbnail rounded">
-                      <a href="#">
-                        <img src="assets/img_dental/dental_03.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
-                        
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="thumbnail rounded">
-                      <a href="#">
-                        <img src="assets/img_dental/dental_04.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
-                        
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="thumbnail rounded">
-                      <a href="#">
-                        <img src="assets/img_dental/dental_04.jpg" alt="Lights" class="border" style="max-width:100px; height:100px; border-radius:5px;">
-                        
-                      </a>
-                    </div>
-                  </div>
-                   <div class="col-md-2"> <!-- Imágen de agregar -->
-                    <div class="thumbnail rounded bg-light" style="width:100px; height:100px;">
-                      <a href="#">
-                      <i class="bi bi-plus-circle p-1" style="max-width:100px; height:100px; border-radius:5px;font-size:4.3rem; border-style: dashed;"></i></a>
-                        
-                      </a>
-                    </div>
-                  </div>
-                  
-                </div><!-- fin galeria -->
-                </p>
-                 <p> 
-                    <label for="inputState" class="form-label"><strong><i class="bi bi-clipboard-plus"></i> Procedimiento: </strong></label>
-                    <select id="inputState" class="form-select"></p>
-                      <option selected>Seleccione el procedimiento...</option>
-                      <option>...</option>
-                    </select>
-              </div>
-              <div class="d-grid gap-2 p-3">
-                <button class="btn btn-primary" type="button"><i class="bi bi-cloud-plus-fill"></i> Guardar</button>
-                <button class="btn btn-danger" type="button"><i class="bi bi-x-circle-fill"></i> Cancelar</button>
-              </div>
+                <div class="table-responsive">
+                  <table class="table table-sm text-center">
+                    <thead class="bg-dark text-info">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Diagnóstico</th>
+                        <th scope="col">Procedimiento(s)</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tablaProcedimientos">
+                      
+                    </tbody>
+                  </table>
+                </div>
             </div>
           </div>
       </div>
