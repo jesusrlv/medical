@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 25-03-2025 a las 19:12:05
+-- Tiempo de generación: 26-03-2025 a las 23:38:26
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.29
+-- Versión de PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -131,9 +131,20 @@ INSERT INTO `paciente` (`id`, `apellido`, `nombre`, `direccion`, `telefono`, `ed
 CREATE TABLE `procedimientos` (
   `id` int(11) NOT NULL,
   `diagnostico` int(11) NOT NULL,
-  `descripción` date NOT NULL,
+  `descripcion` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha` date NOT NULL,
   `id_ext` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `procedimientos`
+--
+
+INSERT INTO `procedimientos` (`id`, `diagnostico`, `descripcion`, `fecha`, `id_ext`) VALUES
+(1, 1, 'X', '2025-03-26', 3),
+(2, 1, 'q', '2025-03-26', 3),
+(3, 1, '3', '2025-03-26', 3),
+(4, 1, '4', '2025-03-26', 3);
 
 -- --------------------------------------------------------
 
@@ -246,7 +257,7 @@ ALTER TABLE `paciente`
 -- AUTO_INCREMENT de la tabla `procedimientos`
 --
 ALTER TABLE `procedimientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tiposangre`
