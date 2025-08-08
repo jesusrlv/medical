@@ -73,10 +73,6 @@
 <main>
   <h1 class="visually-hidden">Dental | Inicio</h1>
 
-  
-
-  
-
   <header class="p-3 bg-dark text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -121,6 +117,10 @@
       <p class="h4 mt-5">
         <strong><i class="bi bi-person-bounding-box"></i> Pacientes</strong> 
       </p>
+      <div class="input-group w-50 mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        <input type="text" class="form-control" placeholder="Filtro" aria-label="Filtro" aria-describedby="basic-addon1" id="buscarNameUser">
+      </div>
 
     </div>
 
@@ -165,3 +165,11 @@
 <script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<script>
+   $("#buscarNameUser").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#pacientes2 tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+</script>
