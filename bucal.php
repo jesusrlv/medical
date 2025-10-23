@@ -118,7 +118,7 @@ include('prcd/conn.php');
       <hr>
 
       <p class="h4 mt-5 bg-info text-light p-4 rounded">
-        <strong><i class="bi bi-list-columns-reverse"></i> Expediente general</strong> 
+        <strong><i class="bi bi-list-columns-reverse"></i> Expediente de tratamiento</strong> 
       </p>
       <hr>
       <p class="h5 mt-2 bg-light text-secondary p-4 rounded">

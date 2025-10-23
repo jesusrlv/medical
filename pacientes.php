@@ -117,7 +117,7 @@
       <p class="h4 mt-5">
         <strong><i class="bi bi-person-bounding-box"></i> Pacientes</strong> 
       </p>
-      <div class="input-group w-50 mb-3">
+      <div class="input-group w-50 mb-1 mt-3">
         <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
         <input type="text" class="form-control" placeholder="Filtro" aria-label="Filtro" aria-describedby="basic-addon1" id="buscarNameUser">
       </div>
