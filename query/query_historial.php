@@ -28,7 +28,7 @@ while ($row = $result->fetch_assoc()) {
             <a href="#" class="btn btn-warning btn-sm" onclick="modalEditarExpediente('.$row['id'].')"><i class="bi bi-pencil-square"></i></a>
         </td>
         <td>
-            <a href="bucal.php?id='.$row['id'].'" class="btn btn-danger btn-sm" onclick="eliminarExpediente('.$row['id'].')"><i class="bi bi-trash"></i></a>
+            <a href="#" class="btn btn-danger btn-sm" onclick="eliminarExpediente('.$row['id'].')"><i class="bi bi-trash"></i></a>
         </td>
     </tr>
     ';

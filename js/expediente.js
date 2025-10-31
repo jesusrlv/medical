@@ -148,18 +148,30 @@ function modalEditarExpediente(id){
     });
 }
 
-function editarExpediente(id){
-    $ajax({
-        url: "query/query_editar_expediente.php",
+function editarExpediente(){
+    let id = _('idExpedienteEditar').value;
+    let diagnostico = _('diagnosticoExpedienteEditar').value;
+    let procedimiento = _('procedimientoExpedienteEditar').value;
+    $.ajax({
+        url: "prcd/prcd_editar_expediente.php",
         method: "POST",
         data:{
-            id:id
+            id:id,
+            diagnostico:diagnostico,
+            procedimiento:procedimiento
         },
         dataType: "json",
         success: function (data) {
             let success = data.success;
             if(success == 1){
                 alert("Expediente editado correctamente");
+                    $('#editarExpedienteModal').modal('hide');
+                    
+                    _('idExpedienteEditar').value = "";
+                    _('diagnosticoExpedienteEditar').value = "";
+                    _('procedimientoExpedienteEditar').value = "";
+
+
                 queryHistorial();
             }
             else{
@@ -170,22 +182,27 @@ function editarExpediente(id){
 }
 
 function eliminarExpediente(id){
-    $.ajax({
-        url: "prcd/prcd_eliminar_expediente.php",
-        method: "POST",
-        data:{
-            id:id
-        },
-        dataType: "json",
-        success: function (data) {
-            let success = data.success;
-            if(success == 1){
-                alert("Expediente eliminado correctamente");
-                queryHistorial();
+    if(!confirm("¿Estás seguro de que deseas eliminar este expediente?")){
+        return;
+    }
+    else{
+        $.ajax({
+            url: "prcd/prcd_eliminar_expediente.php",
+            method: "POST",
+            data:{
+                id:id
+            },
+            dataType: "json",
+            success: function (data) {
+                let success = data.success;
+                if(success == 1){
+                    alert("Expediente eliminado correctamente");
+                    queryHistorial();
+                }
+                else{
+                    alert("Error al eliminar el expediente");
+                }
             }
-            else{
-                alert("Error al eliminar el expediente");
-            }
-        }
-    });
+        });
+    }
 }   
