@@ -251,8 +251,8 @@ include('prcd/conn.php');
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-
-        <input type="text" id="idExpedienteEditar" >
+        
+        <input type="text" id="idExpedienteEditar" hidden>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="bi bi-clipboard2-pulse"></i></span>
             <select class="form-select" aria-label="Seleciona diagnóstico ..." id="diagnosticoExpedienteEditar">
