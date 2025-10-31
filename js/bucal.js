@@ -17,7 +17,9 @@ function datosGeneralesBucal(){
         console.log('Respuesta JSON:', jsonData);
         // var total_espacios = jsonData.total_espacios;
         // console.log('Totalespacios:', total_espacios);
+
         debugger;
+
         if (Array.isArray(jsonData)) {
           console.log('Número de elementos en el array:', jsonData.length);
           var espacios, espaciosTotal, porcentaje;
@@ -90,4 +92,9 @@ function datosGeneralesBucal(){
 
   }
 
-  
+ function mostrarModalDiente(idDiente){
+	// alert("Diente seleccionado: "+idDiente);
+	$('#modalDiente').modal('show');
+    _('textDiente').innerHTML = idDiente;
+    _('inputDiente').value = idDiente;
+  }
