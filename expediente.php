@@ -173,7 +173,7 @@ include('prcd/conn.php');
 
                 <hr>
                 <div class="table-responsive">
-                  <table class="table table-sm text-center">
+                  <table class="table table-sm text-center table-striped">
                     <thead class="bg-dark text-info">
                       <tr>
                         <th scope="col">#</th>
@@ -185,7 +185,7 @@ include('prcd/conn.php');
                         <th scope="col">Eliminar</th>
                       </tr>
                     </thead>
-                    <tbody id="tablaProcedimientos">
+                    <tbody class="" id="tablaProcedimientos">
                       
                     </tbody>
                   </table>

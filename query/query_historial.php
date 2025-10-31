@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 $id = $_POST['idPaciente'];
 $x = 0;
 // Consulta para obtener las citas
-$sql = "SELECT * FROM procedimientos WHERE id_ext = '$id' "; //
+$sql = "SELECT * FROM procedimientos WHERE id_ext = '$id' ORDER BY fecha"; //
 $result = $conn->query($sql);
 
 while ($row = $result->fetch_assoc()) {

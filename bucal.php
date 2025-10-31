@@ -49,6 +49,10 @@ include('prcd/conn.php');
 
 <link rel="stylesheet" href="css/dientes.css">
 
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script src="js/bucal.js"></script>
+
     <style>
       /* #Layer_1 {
         width: 100%;
@@ -104,7 +108,7 @@ include('prcd/conn.php');
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
   </head>
-  <body>  
+  <body onload="datosGeneralesBucal();">  
 
 <main>
   <h1 class="visually-hidden">Dental | Inicio</h1>
@@ -151,6 +155,8 @@ include('prcd/conn.php');
         <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
       </p>
       <hr>
+
+	  <input type="text" id="idPaciente" value="<?php echo $_REQUEST['id']; ?>" >
 
       <p class="h4 mt-5 bg-info text-light p-4 rounded">
         <strong><i class="bi bi-list-columns-reverse"></i> Expediente de tratamiento</strong> 
@@ -977,8 +983,6 @@ include('prcd/conn.php');
 
     
 <main>
-
-
 
 </main>
 </body>
