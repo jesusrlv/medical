@@ -113,40 +113,40 @@ include('prcd/conn.php');
 }
 
 /* 🔺 Curvatura superior más natural (de menor a mayor curvatura hacia los extremos) */
-.superior .diente:nth-child(1) { transform: rotate(-38deg) translateY(90px); }
-.superior .diente:nth-child(2) { transform: rotate(-33deg) translateY(75px); }
-.superior .diente:nth-child(3) { transform: rotate(-28deg) translateY(60px); }
-.superior .diente:nth-child(4) { transform: rotate(-23deg) translateY(45px); }
-.superior .diente:nth-child(5) { transform: rotate(-18deg) translateY(35px); }
-.superior .diente:nth-child(6) { transform: rotate(-12deg) translateY(25px); }
-.superior .diente:nth-child(7) { transform: rotate(-6deg) translateY(15px); }
-.superior .diente:nth-child(8) { transform: translateY(10px); }
-.superior .diente:nth-child(9) { transform: translateY(10px); }
-.superior .diente:nth-child(10) { transform: rotate(6deg) translateY(15px); }
-.superior .diente:nth-child(11) { transform: rotate(12deg) translateY(25px); }
-.superior .diente:nth-child(12) { transform: rotate(18deg) translateY(35px); }
-.superior .diente:nth-child(13) { transform: rotate(23deg) translateY(45px); }
-.superior .diente:nth-child(14) { transform: rotate(28deg) translateY(60px); }
-.superior .diente:nth-child(15) { transform: rotate(33deg) translateY(75px); }
-.superior .diente:nth-child(16) { transform: rotate(38deg) translateY(90px); }
+.superior .diente:nth-child(1) { transform: rotate(-38deg) translateY(110px); }
+.superior .diente:nth-child(2) { transform: rotate(-33deg) translateY(70px); }
+.superior .diente:nth-child(3) { transform: rotate(-28deg) translateY(40px); }
+.superior .diente:nth-child(4) { transform: rotate(-23deg) translateY(30px); }
+.superior .diente:nth-child(5) { transform: rotate(-18deg) translateY(25px); }
+.superior .diente:nth-child(6) { transform: rotate(-12deg) translateY(20px); }
+.superior .diente:nth-child(7) { transform: rotate(-6deg) translateY(20px); }
+.superior .diente:nth-child(8) { transform: translateY(15px); }
+.superior .diente:nth-child(9) { transform: translateY(15px); }
+.superior .diente:nth-child(10) { transform: rotate(6deg) translateY(20px); }
+.superior .diente:nth-child(11) { transform: rotate(12deg) translateY(20px); }
+.superior .diente:nth-child(12) { transform: rotate(18deg) translateY(25px); }
+.superior .diente:nth-child(13) { transform: rotate(23deg) translateY(30px); }
+.superior .diente:nth-child(14) { transform: rotate(28deg) translateY(40px); }
+.superior .diente:nth-child(15) { transform: rotate(33deg) translateY(70px); }
+.superior .diente:nth-child(16) { transform: rotate(38deg) translateY(110px); }
 
 /* 🔻 Curvatura inferior (invertida respecto a la superior) */
-.inferior .diente:nth-child(1) { transform: rotate(38deg) translateY(-90px); }
-.inferior .diente:nth-child(2) { transform: rotate(33deg) translateY(-75px); }
-.inferior .diente:nth-child(3) { transform: rotate(28deg) translateY(-60px); }
-.inferior .diente:nth-child(4) { transform: rotate(23deg) translateY(-45px); }
-.inferior .diente:nth-child(5) { transform: rotate(18deg) translateY(-35px); }
-.inferior .diente:nth-child(6) { transform: rotate(12deg) translateY(-25px); }
-.inferior .diente:nth-child(7) { transform: rotate(6deg) translateY(-15px); }
-.inferior .diente:nth-child(8) { transform: translateY(-10px); }
-.inferior .diente:nth-child(9) { transform: translateY(-10px); }
-.inferior .diente:nth-child(10) { transform: rotate(-6deg) translateY(-15px); }
-.inferior .diente:nth-child(11) { transform: rotate(-12deg) translateY(-25px); }
-.inferior .diente:nth-child(12) { transform: rotate(-18deg) translateY(-35px); }
-.inferior .diente:nth-child(13) { transform: rotate(-23deg) translateY(-45px); }
-.inferior .diente:nth-child(14) { transform: rotate(-28deg) translateY(-60px); }
-.inferior .diente:nth-child(15) { transform: rotate(-33deg) translateY(-75px); }
-.inferior .diente:nth-child(16) { transform: rotate(-38deg) translateY(-90px); }
+.inferior .diente:nth-child(1) { transform: rotate(38deg) translateY(-110px); }
+.inferior .diente:nth-child(2) { transform: rotate(33deg) translateY(-70px); }
+.inferior .diente:nth-child(3) { transform: rotate(28deg) translateY(-40px); }
+.inferior .diente:nth-child(4) { transform: rotate(23deg) translateY(-30px); }
+.inferior .diente:nth-child(5) { transform: rotate(18deg) translateY(-25px); }
+.inferior .diente:nth-child(6) { transform: rotate(12deg) translateY(-20px); }
+.inferior .diente:nth-child(7) { transform: rotate(6deg) translateY(-20px); }
+.inferior .diente:nth-child(8) { transform: translateY(-15px); }
+.inferior .diente:nth-child(9) { transform: translateY(-15px); }
+.inferior .diente:nth-child(10) { transform: rotate(-6deg) translateY(-20px); }
+.inferior .diente:nth-child(11) { transform: rotate(-12deg) translateY(-20px); }
+.inferior .diente:nth-child(12) { transform: rotate(-18deg) translateY(-25px); }
+.inferior .diente:nth-child(13) { transform: rotate(-23deg) translateY(-30px); }
+.inferior .diente:nth-child(14) { transform: rotate(-28deg) translateY(-40px); }
+.inferior .diente:nth-child(15) { transform: rotate(-33deg) translateY(-70px); }
+.inferior .diente:nth-child(16) { transform: rotate(-38deg) translateY(-100px); }
 
     </style>
 	
