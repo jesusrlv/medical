@@ -204,7 +204,7 @@ include('prcd/conn.php');
       </p>
       <hr>
       <p class="h5 mt-2 bg-light text-secondary p-4 rounded">
-        <strong><i class="bi bi-person-circle"></i> Nombre del paciente: </strong>XXXX XXXX XXXXX 
+        <strong><i class="bi bi-person-circle"></i> Nombre del paciente: </strong><span id="nombrePaciente"></span> 
       </p>
       <hr>
       <div class="alert alert-primary" role="alert">
