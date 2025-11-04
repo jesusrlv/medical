@@ -153,7 +153,7 @@ include('prcd/conn.php');
     <!-- Custom styles for this template -->
     <link href="css/headers.css" rel="stylesheet">
   </head>
-  <body onload="datosGeneralesBucal();">  
+  <body onload="datosGenerales();">  
 
 <main>
   <h1 class="visually-hidden">Dental | Inicio</h1>
@@ -196,8 +196,10 @@ include('prcd/conn.php');
         <strong><i class="bi bi-person-circle"></i> Bienvenido</strong> <? echo $usuario ?>.
       </p>
       <hr>
-
+    <!-- este es id del procedimiento -->
 	  <input type="text" id="idPaciente" value="<?php echo $_REQUEST['id']; ?>" >
+    <!-- este es id del usuario -->
+	  <input type="text" id="user" value="<?php echo $_REQUEST['user']; ?>" >
 
       <p class="h4 mt-5 bg-info text-light p-4 rounded">
         <strong><i class="bi bi-list-columns-reverse"></i> Expediente de tratamiento</strong> 

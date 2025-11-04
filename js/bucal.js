@@ -4,22 +4,23 @@ function _(el){
 
 // datos generales
 function datosGenerales(){
-    let id = _('idPaciente').value;
+    let id = _('user').value;
     $.ajax({
       type: "POST",
       data: { id: id },
       url: "query/query_datos_generales.php", // Cambia esto por la ruta de tu script PHP
       dataType: "JSON",
       success: function(data) {
+        console.log('Respuesta JSON datos generales:', data);
         var nombre = data.nombre;
-        var edad = data.edad;
-        var sexo = data.sexo;
-        var fecha_registro = data.fecha_registro;
+        // var edad = data.edad;
+        // var sexo = data.sexo;
+        // var fecha_registro = data.fecha_registro;
 
         _('nombrePaciente').innerHTML = nombre;
-        _('edadPaciente').innerHTML = edad + " años";
-        _('sexoPaciente').innerHTML = sexo;
-        _('fechaRegistro').innerHTML = fecha_registro;
+        // _('edadPaciente').innerHTML = edad + " años";
+        // _('sexoPaciente').innerHTML = sexo;
+        // _('fechaRegistro').innerHTML = fecha_registro;
       },
       error: function(xhr, status, error) {
           console.error('Error en AJAX:', error);
