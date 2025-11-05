@@ -210,7 +210,7 @@ include('prcd/conn.php');
       </p>
       <hr>
       <div class="alert alert-primary" role="alert">
-        <span class="text-center"><i class="fas fa-teeth-open"></i> Dentadura</span>
+        <span class="text-center h5"><i class="fas fa-teeth-open"></i><strong> Dentadura</strong></span>
       </div>
       <!-- inicia sección de superiores -->
       <div class="container">
@@ -264,6 +264,18 @@ include('prcd/conn.php');
 				<!-- svg -->
               </div>
 			  <div class="col-6">
+          <div class="alert alert-primary" role="alert">
+            <i class="bi bi-chat-right-dots"></i> Log de tratamientos realizados
+          </div>
+          <div class="container">
+            <div class="alert alert-info" role="alert">
+              A simple info alert—check it out!
+            </div>  
+            <div class="alert alert-info" role="alert">
+              A simple info alert—check it out!
+            </div>  
+          </div>
+
 
 			 <div class="card" style="width: 18rem;">
 				<img src="..." class="card-img-top" alt="...">
